@@ -1,0 +1,16 @@
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.3.0",
+    "isort>=5.12.0",
+    "ruff>=0.0.260",
+]
+
+[project]
+name = "cproc"
+version = "0.0.1"
+description = "C without Preprocessor"
+authors = [{ name = "Kyle Coffey", email = "me@phytolizer.dev" }]
+dependencies = []
+requires-python = ">=3.11"
+license = { text = "MIT" }

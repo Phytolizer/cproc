@@ -1,0 +1,28 @@
+// import to global namespace
+import "stdio.h";
+// import to sub-namespace
+import "stdlib.h" as stdlib;
+
+// macro syntax, args are untyped
+macro say_hi(who) {
+    // allow validating macro args arbitrarily
+    // the macro keyword can be used as a pseudo-namespace in macros
+    // this namespace contains many operations that are compiler-native
+    macro.require(macro.is_string_lit(who));
+
+    macro.string_lit_t message = macro.concat_string_lits("hello ", who, "\n");
+
+    // all macros must return a block like this
+    // otherwise, they expand to nothing
+    return {
+        printf(message);
+        // the semicolon on the previous line is required,
+        // but you still also must provide one when invoking a macro
+    };
+}
+
+int main(void) {
+    say_hi("John");  // expands to `printf("hello John\n");`
+    say_hi(steve);  // error, steve is not a string literal
+    stdlib.exit(0);
+}
