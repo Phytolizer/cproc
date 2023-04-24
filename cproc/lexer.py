@@ -336,6 +336,8 @@ class Lexer:
             )
 
         def _lex_int_suffix(self) -> bool:
+            # FIXME: side effects are kinda problematic here.
+            # the control flow is obstructed
             if (
                 self._match_prefix("u")
                 or self._match_prefix("U")
