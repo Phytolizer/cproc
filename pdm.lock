@@ -66,8 +66,7 @@ requires_python = ">=3.7"
 summary = "An extremely fast Python linter, written in Rust."
 
 [metadata]
-lock_version = "4.2"
-groups = ["default", "dev"]
+lock_version = "4.1"
 content_hash = "sha256:5b1e8f4729aafe93ca43f306a06e403e481eed86e8fcc7a56ede1e3712bdf67d"
 
 [metadata.files]
