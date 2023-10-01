@@ -1,6 +1,6 @@
-from enum import Enum, auto
 from collections import defaultdict
 from dataclasses import dataclass
+from enum import Enum, auto
 
 
 class TokenKind(Enum):
@@ -144,14 +144,14 @@ class TokenKind(Enum):
         return self.name.startswith("C_")
 
     def resolve_digraph(self) -> "TokenKind":
-        if self == self.P_LESS_COLON:
-            return self.P_LBRACK
-        elif self == self.P_COLON_GREATER:
-            return self.P_RBRACK
-        elif self == self.P_LESS_PERCENT:
-            return self.P_LBRACE
-        elif self == self.P_PERCENT_GREATER:
-            return self.P_RBRACE
+        if self is TokenKind.P_LESS_COLON:
+            return TokenKind.P_LBRACK
+        elif self is TokenKind.P_COLON_GREATER:
+            return TokenKind.P_RBRACK
+        elif self is TokenKind.P_LESS_PERCENT:
+            return TokenKind.P_LBRACE
+        elif self is TokenKind.P_PERCENT_GREATER:
+            return TokenKind.P_RBRACE
         else:
             # not a digraph
             return self
@@ -169,13 +169,14 @@ def _gen_keywords() -> dict[str, TokenKind]:
             # e.g. _Static_assert, _Alignof
             text = "_" + kind.name[4].upper() + kind.name[5:].lower()
         else:
-            assert False, "invalid token kind name"
+            raise AssertionError("invalid token kind name")
         result[text] = kind
     return result
 
 
 _KEYWORDS: defaultdict[str, TokenKind] = defaultdict(
-    lambda: TokenKind.IDENT, _gen_keywords()
+    lambda: TokenKind.IDENT,
+    _gen_keywords(),
 )
 
 

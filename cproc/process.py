@@ -1,9 +1,11 @@
+from pathlib import Path
+
 from cproc.lexer import Lexer
 from cproc.opts import Opts
 
 
-def _process_file(f: str) -> None:
-    with open(f, "r") as fp:
+def _process_file(f: Path) -> None:
+    with f.open() as fp:
         raw_contents = fp.read()
 
     for tok in Lexer(raw_contents):

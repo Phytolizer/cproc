@@ -1,9 +1,10 @@
-from cproc.token import Token, TokenKind
 from collections.abc import Callable
+
+from cproc.token import Token, TokenKind
 
 
 def _is_oct_digit(ch: str) -> bool:
-    return ch.isdigit() and int(ch) in range(0, 8)
+    return ch.isdigit() and int(ch) in range(8)
 
 
 def _is_hex_digit(ch: str) -> bool:
@@ -63,11 +64,13 @@ _PUNCTUATORS: dict[str, TokenKind] = {
     "%>": TokenKind.P_PERCENT_GREATER,
 }
 
-_PUNCTUATORS_START = set(k[0] for k in _PUNCTUATORS.keys())
+_PUNCTUATORS_START = {k[0] for k in _PUNCTUATORS}
 
 _PUNCTUATORS_NEXT = {
-    c: list(
-        reversed(sorted((k for k in _PUNCTUATORS.keys() if k.startswith(c)), key=len))
+    c: sorted(
+        (k for k in _PUNCTUATORS if k.startswith(c)),
+        key=len,
+        reverse=True,
     )
     for c in _PUNCTUATORS_START
 }
@@ -93,6 +96,7 @@ class Lexer:
             index = self._pos + offset
             if index < len(self._lex._src):
                 return self._lex._src[index]
+            return None
 
         def _look_ch(self, /, offset: int, exp: str) -> bool:
             return self._look_pred(offset, lambda ch: ch == exp)
@@ -164,7 +168,7 @@ class Lexer:
                 if self._match_prefix(p[1:], offset=1):
                     return _PUNCTUATORS[p].resolve_digraph()
 
-            assert False, "unreachable"
+            raise AssertionError("unreachable")
 
         def _is_string_start(self) -> bool:
             return (
@@ -224,9 +228,8 @@ class Lexer:
                     if not self._look_pred(i, _is_oct_digit):
                         self._move(i)
                         return True
-                else:
-                    self._move(3)
-                    return True
+                self._move(3)
+                return True
 
             if self._match_prefix("x"):
                 i = 0
@@ -250,8 +253,8 @@ class Lexer:
             elif self._token_has_prefix("u", start=start):
                 code_unit_bytes = 2
             elif self._token_has_prefix("L", start=start):
-                # TODO: wchar_t size determination
-                assert False, "TODO: find a way to get wchar_t size"
+                # TODO(kyle): wchar_t size determination
+                raise AssertionError("TODO: find a way to get wchar_t size")
             while True:
                 if self._match_prefix("\n"):
                     return TokenKind.ERROR
@@ -271,8 +274,8 @@ class Lexer:
             elif self._token_has_prefix("u", start=start):
                 code_unit_bytes = 2
             elif self._token_has_prefix("L", start=start):
-                # TODO: wchar_t size determination
-                assert False, "TODO: find a way to get wchar_t size"
+                # TODO(kyle): wchar_t size determination
+                raise AssertionError("TODO: find a way to get wchar_t size")
             while True:
                 if self._match_prefix("\n"):
                     return TokenKind.ERROR
@@ -291,9 +294,8 @@ class Lexer:
 
         def _lex_ident(self) -> TokenKind:
             while True:
-                if self._match_prefix("\\"):
-                    if not self._lex_universal_char_name():
-                        return TokenKind.ERROR
+                if self._match_prefix("\\") and not self._lex_universal_char_name():
+                    return TokenKind.ERROR
                 if self._look_pred(0, lambda ch: ch.isalnum() or ch == "_"):
                     self._move()
                 else:
@@ -336,7 +338,7 @@ class Lexer:
             )
 
         def _lex_int_suffix(self) -> bool:
-            # FIXME: side effects are kinda problematic here.
+            # TODO(kyle): side effects are kinda problematic here.
             # the control flow is obstructed
             if (
                 self._match_prefix("u")
