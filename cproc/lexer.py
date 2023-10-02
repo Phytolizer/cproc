@@ -165,6 +165,9 @@ class Lexer:
             assert start is not None
             possibilities = _PUNCTUATORS_NEXT[start]
             for p in possibilities:
+                if len(p) == 1:
+                    self._move()
+                    return _PUNCTUATORS[p]
                 if self._match_prefix(p[1:], offset=1):
                     return _PUNCTUATORS[p].resolve_digraph()
 
