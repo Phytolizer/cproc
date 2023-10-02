@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from pathlib import Path
 
 from cproc.opts import Opts
 
@@ -10,6 +11,7 @@ def handle_args() -> Opts:
         metavar="FILE",
         nargs="+",
         help="Files to process",
+        type=Path,
     )
     args = p.parse_args()
 
