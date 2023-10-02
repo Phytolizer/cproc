@@ -1,6 +1,6 @@
 from collections.abc import Callable
 
-from cproc.token import Token, TokenKind
+from cproc.token import Token, TokenKind, ident_kind
 
 
 def _is_oct_digit(ch: str) -> bool:
@@ -412,4 +412,6 @@ class Lexer:
 
             if text is None:
                 text = self._lex._src[start : self._pos]
+            if kind == TokenKind.IDENT:
+                kind = ident_kind(text)
             return Token(kind=kind, pos=start, text=text)
