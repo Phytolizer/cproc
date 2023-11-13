@@ -189,3 +189,6 @@ class Token:
     kind: TokenKind
     pos: int
     text: str
+
+    def __str__(self) -> str:
+        return f"{self.kind.name} ('{self.text}')"

@@ -1,22 +1,40 @@
 // comment
-{}{}<::>
+{}{}
+// digraph
+<::>
+// block comment
 (/* // */)
 
+// string prefixes
 u8"hi"
 U"\x01234567"
-u"\x0123" // accept
-u8"\x0123" // reject
+u"\x0123" // ok
+u8"\x0123" // error, too large for 1-byte
+
+// quote mixing
+"'"
+'"'
+'\''
+"\""
+
+// special chars
 "\x01"
-"\"\\"
-"\0hi" // length: 3
-"\008" // length: 2
-"\012" // length: 1
+"\"\\" // backslash behavior -- error after second quote
+"\0hi" // length: 3 [0x00, 'h', 'i']
+"\008" // length: 2 [0x00, '8']
+"\012" // length: 1 [0x0c]
 
 "\u00A0"
 
+// ident vs literal
 hi_2 2 0x2 02 hi
-012345678
+012345678 // error, octal with 8
+
+// kw vs ident
 if
+iff
+
+// unicode
 \u0068
 \U00000068
-\U0000 // error
+\U0000 // error, too short
