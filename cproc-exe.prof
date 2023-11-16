@@ -1,0 +1,952 @@
+	Thu Nov 16 13:50 2023 Time and Allocation Profiling Report  (Final)
+
+	   cproc-exe +RTS -N -p -RTS test/punct.cproc
+
+	total time  =        1.11 secs   (3453 ticks @ 1000 us, 16 processors)
+	total alloc = 8,409,141,888 bytes  (excludes profiling overheads)
+
+COST CENTRE    MODULE              SRC                                  %time %alloc
+
+look           Lib.Lexer           src/Lib/Lexer.hs:(50,1)-(56,24)       26.6    0.0
+lookCh         Lib.Lexer           src/Lib/Lexer.hs:59:1-49              23.0   50.9
+skipWs.skipWs' Lib.Lexer           src/Lib/Lexer.hs:(102,5)-(118,27)     15.7   19.4
+ifM            Control.Monad.Extra src/Control/Monad/Extra.hs:204:1-41   15.6    7.3
+move.\         Lib.Lexer           src/Lib/Lexer.hs:44:25-46             12.6   21.8
+look.index     Lib.Lexer           src/Lib/Lexer.hs:52:9-32               3.0    0.0
+move           Lib.Lexer           src/Lib/Lexer.hs:44:1-46               2.3    0.0
+
+
+                                                                                                                                                        individual      inherited
+COST CENTRE                                           MODULE                  SRC                                                   no.      entries  %time %alloc   %time %alloc
+
+MAIN                                                  MAIN                    <built-in>                                             698           0    0.5    0.0   100.0  100.0
+ CAF                                                  Data.Text.Array         <entire-module>                                        921           0    0.0    0.0     0.0    0.0
+ CAF                                                  Data.Text.IO            <entire-module>                                        920           0    0.0    0.0     0.0    0.0
+ CAF                                                  Debug.Trace             <entire-module>                                        826           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.Conc.Signal         <entire-module>                                        814           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.IO.Encoding         <entire-module>                                        797           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.IO.Encoding.Iconv   <entire-module>                                        795           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.IO.Exception        <entire-module>                                        787           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.IO.Handle.FD        <entire-module>                                        785           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.IO.FD               <entire-module>                                        784           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.IO.Handle.Internals <entire-module>                                        783           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.Show                <entire-module>                                        761           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.Stack.CCS           <entire-module>                                        759           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.TopHandler          <entire-module>                                        756           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.Event.Thread        <entire-module>                                        731           0    0.0    0.0     0.0    0.0
+ CAF                                                  GHC.Event.Control       <entire-module>                                        727           0    0.0    0.0     0.0    0.0
+ CAF:allTokens1                                       Lib.Lexer               <no location info>                                    1353           0    0.0    0.0     0.0    0.0
+  allTokens                                           Lib.Lexer               src/Lib/Lexer.hs:324:1-26                             1404           1    0.0    0.0     0.0    0.0
+ CAF:allTokens2                                       Lib.Lexer               <no location info>                                    1351           0    0.0    0.0     0.0    0.0
+  nextToken                                           Lib.Lexer               src/Lib/Lexer.hs:(300,1)-(321,65)                     1406           1    0.0    0.0     0.0    0.0
+   ifM                                                Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1407           1    0.0    0.0     0.0    0.0
+ CAF:b10_r5k8                                         Lib.Lexer               <no location info>                                    1314           0    0.0    0.0     0.0    0.0
+  matchEscapeSeq                                      Lib.Lexer               src/Lib/Lexer.hs:(176,1)-(193,45)                     1621           0    0.0    0.0     0.0    0.0
+   anyM                                               Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1623          12    0.0    0.0     0.0    0.0
+    matchPrefix'                                      Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1625          11    0.0    0.0     0.0    0.0
+     matchPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1626          11    0.0    0.0     0.0    0.0
+      hasPrefix                                       Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1629          11    0.0    0.0     0.0    0.0
+       hasPrefix.checkChar                            Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1631          11    0.0    0.0     0.0    0.0
+        lookCh                                        Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1632          11    0.0    0.0     0.0    0.0
+         look                                         Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1635          11    0.0    0.0     0.0    0.0
+   escapeChars                                        Lib.Lexer               src/Lib/Lexer.hs:173:1-71                             1622           1    0.0    0.0     0.0    0.0
+ CAF:b11_r5k9                                         Lib.Lexer               <no location info>                                    1315           0    0.0    0.0     0.0    0.0
+  matchEscapeSeq                                      Lib.Lexer               src/Lib/Lexer.hs:(176,1)-(193,45)                     1640           0    0.0    0.0     0.0    0.0
+   lookPred                                           Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1641           1    0.0    0.0     0.0    0.0
+    look                                              Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1643           1    0.0    0.0     0.0    0.0
+ CAF:b12_r5kh                                         Lib.Lexer               <no location info>                                    1321           0    0.0    0.0     0.0    0.0
+  matchEscapeSeq                                      Lib.Lexer               src/Lib/Lexer.hs:(176,1)-(193,45)                     1648           0    0.0    0.0     0.0    0.0
+   matchPrefix'                                       Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1649           1    0.0    0.0     0.0    0.0
+    matchPrefix                                       Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1650           1    0.0    0.0     0.0    0.0
+     hasPrefix                                        Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1653           1    0.0    0.0     0.0    0.0
+      hasPrefix.checkChar                             Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1655           1    0.0    0.0     0.0    0.0
+       lookCh                                         Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1656           1    0.0    0.0     0.0    0.0
+        look                                          Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1659           1    0.0    0.0     0.0    0.0
+ CAF:b13_r5kj                                         Lib.Lexer               <no location info>                                    1322           0    0.0    0.0     0.0    0.0
+  matchEscapeSeq                                      Lib.Lexer               src/Lib/Lexer.hs:(176,1)-(193,45)                     1779           0    0.0    0.0     0.0    0.0
+   anyM                                               Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1780           1    0.0    0.0     0.0    0.0
+    hasPrefix'                                        Lib.Lexer               src/Lib/Lexer.hs:77:1-38                              1781           1    0.0    0.0     0.0    0.0
+     hasPrefix                                        Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1782           1    0.0    0.0     0.0    0.0
+      hasPrefix.checkChar                             Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1785           1    0.0    0.0     0.0    0.0
+       lookCh                                         Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1786           1    0.0    0.0     0.0    0.0
+        look                                          Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1789           1    0.0    0.0     0.0    0.0
+ CAF:b14_r5ks                                         Lib.Lexer               <no location info>                                    1326           0    0.0    0.0     0.0    0.0
+  lexInt                                              Lib.Lexer               src/Lib/Lexer.hs:(289,1)-(297,26)                     1898           0    0.0    0.0     0.0    0.0
+   lexInt.determineIntKind                            Lib.Lexer               src/Lib/Lexer.hs:(293,5)-(297,26)                     1899           0    0.0    0.0     0.0    0.0
+    anyM                                              Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1900           3    0.0    0.0     0.0    0.0
+     hasPrefix'                                       Lib.Lexer               src/Lib/Lexer.hs:77:1-38                              1902           2    0.0    0.0     0.0    0.0
+      hasPrefix                                       Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1903           2    0.0    0.0     0.0    0.0
+       hasPrefix.checkChar                            Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1906           4    0.0    0.0     0.0    0.0
+        lookCh                                        Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1907           4    0.0    0.0     0.0    0.0
+         look                                         Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1910           4    0.0    0.0     0.0    0.0
+ CAF:b15_r5ky                                         Lib.Lexer               <no location info>                                    1330           0    0.0    0.0     0.0    0.0
+  lexInt                                              Lib.Lexer               src/Lib/Lexer.hs:(289,1)-(297,26)                     1918           0    0.0    0.0     0.0    0.0
+   lexInt.determineIntKind                            Lib.Lexer               src/Lib/Lexer.hs:(293,5)-(297,26)                     1919           0    0.0    0.0     0.0    0.0
+    matchPrefix'                                      Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1920           1    0.0    0.0     0.0    0.0
+     matchPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1921           1    0.0    0.0     0.0    0.0
+      hasPrefix                                       Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1924           1    0.0    0.0     0.0    0.0
+       hasPrefix.checkChar                            Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1926           1    0.0    0.0     0.0    0.0
+        lookCh                                        Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1927           1    0.0    0.0     0.0    0.0
+         look                                         Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1930           1    0.0    0.0     0.0    0.0
+ CAF:b16_r5kI                                         Lib.Lexer               <no location info>                                    1338           0    0.0    0.0     0.0    0.0
+  nextToken                                           Lib.Lexer               src/Lib/Lexer.hs:(300,1)-(321,65)                     1600           0    0.0    0.0     0.0    0.0
+   lexString                                          Lib.Lexer               src/Lib/Lexer.hs:(196,1)-(215,33)                     1601           0    0.0    0.0     0.0    0.0
+    lexString.loop                                    Lib.Lexer               src/Lib/Lexer.hs:(205,5)-(215,33)                     1602           0    0.0    0.0     0.0    0.0
+     matchPrefix'                                     Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1603           1    0.0    0.0     0.0    0.0
+      matchPrefix                                     Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1604           1    0.0    0.0     0.0    0.0
+       hasPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1605           1    0.0    0.0     0.0    0.0
+        hasPrefix.checkChar                           Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1606           1    0.0    0.0     0.0    0.0
+         lookCh                                       Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1607           1    0.0    0.0     0.0    0.0
+          look                                        Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1608           1    0.0    0.0     0.0    0.0
+ CAF:b17_r5kK                                         Lib.Lexer               <no location info>                                    1339           0    0.0    0.0     0.0    0.0
+  nextToken                                           Lib.Lexer               src/Lib/Lexer.hs:(300,1)-(321,65)                     1591           0    0.0    0.0     0.0    0.0
+   lexString                                          Lib.Lexer               src/Lib/Lexer.hs:(196,1)-(215,33)                     1592           0    0.0    0.0     0.0    0.0
+    lexString.loop                                    Lib.Lexer               src/Lib/Lexer.hs:(205,5)-(215,33)                     1593           0    0.0    0.0     0.0    0.0
+     matchPrefix'                                     Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1594           1    0.0    0.0     0.0    0.0
+      matchPrefix                                     Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1595           1    0.0    0.0     0.0    0.0
+       hasPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1596           1    0.0    0.0     0.0    0.0
+        hasPrefix.checkChar                           Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1597           1    0.0    0.0     0.0    0.0
+         lookCh                                       Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1598           1    0.0    0.0     0.0    0.0
+          look                                        Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1599           1    0.0    0.0     0.0    0.0
+ CAF:b18_r5kN                                         Lib.Lexer               <no location info>                                    1341           0    0.0    0.0     0.0    0.0
+  nextToken                                           Lib.Lexer               src/Lib/Lexer.hs:(300,1)-(321,65)                     1571           0    0.0    0.0     0.0    0.0
+   lexString                                          Lib.Lexer               src/Lib/Lexer.hs:(196,1)-(215,33)                     1572           0    0.0    0.0     0.0    0.0
+    lexString.loop                                    Lib.Lexer               src/Lib/Lexer.hs:(205,5)-(215,33)                     1573           0    0.0    0.0     0.0    0.0
+     matchPrefix'                                     Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1574           1    0.0    0.0     0.0    0.0
+      matchPrefix                                     Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1575           1    0.0    0.0     0.0    0.0
+       hasPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1580           1    0.0    0.0     0.0    0.0
+        hasPrefix.checkChar                           Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1582           1    0.0    0.0     0.0    0.0
+         lookCh                                       Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1583           1    0.0    0.0     0.0    0.0
+          look                                        Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1586           1    0.0    0.0     0.0    0.0
+ CAF:b19_r5kV                                         Lib.Lexer               <no location info>                                    1345           0    0.0    0.0     0.0    0.0
+  nextToken                                           Lib.Lexer               src/Lib/Lexer.hs:(300,1)-(321,65)                     1729           0    0.0    0.0     0.0    0.0
+   lexChar                                            Lib.Lexer               src/Lib/Lexer.hs:(218,1)-(236,40)                     1730           0    0.0    0.0     0.0    0.0
+    lexChar.loop                                      Lib.Lexer               src/Lib/Lexer.hs:(226,5)-(236,40)                     1731           0    0.0    0.0     0.0    0.0
+     matchPrefix'                                     Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1732           1    0.0    0.0     0.0    0.0
+      matchPrefix                                     Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1733           1    0.0    0.0     0.0    0.0
+       hasPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1734           1    0.0    0.0     0.0    0.0
+        hasPrefix.checkChar                           Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1735           1    0.0    0.0     0.0    0.0
+         lookCh                                       Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1736           1    0.0    0.0     0.0    0.0
+          look                                        Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1737           1    0.0    0.0     0.0    0.0
+ CAF:b1_r5i1                                          Lib.Lexer               <no location info>                                    1247           0    0.0    0.0     0.0    0.0
+  lexIntHex                                           Lib.Lexer               src/Lib/Lexer.hs:(256,1)-(260,22)                     2051           0    0.0    0.0     0.0    0.0
+   lookPred                                           Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       2052           1    0.0    0.0     0.0    0.0
+    look                                              Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2054           1    0.0    0.0     0.0    0.0
+ CAF:b20_r5kW                                         Lib.Lexer               <no location info>                                    1346           0    0.0    0.0     0.0    0.0
+  nextToken                                           Lib.Lexer               src/Lib/Lexer.hs:(300,1)-(321,65)                     1720           0    0.0    0.0     0.0    0.0
+   lexChar                                            Lib.Lexer               src/Lib/Lexer.hs:(218,1)-(236,40)                     1721           0    0.0    0.0     0.0    0.0
+    lexChar.loop                                      Lib.Lexer               src/Lib/Lexer.hs:(226,5)-(236,40)                     1722           0    0.0    0.0     0.0    0.0
+     matchPrefix'                                     Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1723           1    0.0    0.0     0.0    0.0
+      matchPrefix                                     Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1724           1    0.0    0.0     0.0    0.0
+       hasPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1725           1    0.0    0.0     0.0    0.0
+        hasPrefix.checkChar                           Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1726           1    0.0    0.0     0.0    0.0
+         lookCh                                       Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1727           1    0.0    0.0     0.0    0.0
+          look                                        Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1728           1    0.0    0.0     0.0    0.0
+ CAF:b21_r5kX                                         Lib.Lexer               <no location info>                                    1347           0    0.0    0.0     0.0    0.0
+  nextToken                                           Lib.Lexer               src/Lib/Lexer.hs:(300,1)-(321,65)                     1700           0    0.0    0.0     0.0    0.0
+   lexChar                                            Lib.Lexer               src/Lib/Lexer.hs:(218,1)-(236,40)                     1701           0    0.0    0.0     0.0    0.0
+    lexChar.loop                                      Lib.Lexer               src/Lib/Lexer.hs:(226,5)-(236,40)                     1702           0    0.0    0.0     0.0    0.0
+     matchPrefix'                                     Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1703           1    0.0    0.0     0.0    0.0
+      matchPrefix                                     Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1704           1    0.0    0.0     0.0    0.0
+       hasPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1709           1    0.0    0.0     0.0    0.0
+        hasPrefix.checkChar                           Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1711           1    0.0    0.0     0.0    0.0
+         lookCh                                       Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1712           1    0.0    0.0     0.0    0.0
+          look                                        Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1715           1    0.0    0.0     0.0    0.0
+ CAF:b2_r5i8                                          Lib.Lexer               <no location info>                                    1254           0    0.0    0.0     0.0    0.0
+  lexIntOctal                                         Lib.Lexer               src/Lib/Lexer.hs:(263,1)-(266,21)                     2098           0    0.0    0.0     0.0    0.0
+   lookPred                                           Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       2099           1    0.0    0.0     0.0    0.0
+    look                                              Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2100           1    0.0    0.0     0.0    0.0
+ CAF:b3_r5iX                                          Lib.Lexer               <no location info>                                    1280           0    0.0    0.0     0.0    0.0
+  skipWs                                              Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1533           0    0.0    0.0     0.0    0.0
+   skipWs.skipWs'                                     Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1534           0    0.0    0.0     0.0    0.0
+    matchPrefix'                                      Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1535           1    0.0    0.0     0.0    0.0
+     matchPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1536           1    0.0    0.0     0.0    0.0
+      hasPrefix                                       Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1537           1    0.0    0.0     0.0    0.0
+       hasPrefix.checkChar                            Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1538           2    0.0    0.0     0.0    0.0
+        lookCh                                        Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1539           2    0.0    0.0     0.0    0.0
+         look                                         Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1540           2    0.0    0.0     0.0    0.0
+ CAF:b4_r5iZ                                          Lib.Lexer               <no location info>                                    1281           0    0.0    0.0     0.0    0.0
+  skipWs                                              Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1465           0    0.0    0.0     0.0    0.0
+   skipWs.skipWs'                                     Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1466           0    0.0    0.0     0.0    0.0
+    lookCh                                            Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1467           1    0.0    0.0     0.0    0.0
+     look                                             Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1469           1    0.0    0.0     0.0    0.0
+ CAF:b5_r5j2                                          Lib.Lexer               <no location info>                                    1283           0    0.0    0.0     0.0    0.0
+  skipWs                                              Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1451           0    0.0    0.0     0.0    0.0
+   skipWs.skipWs'                                     Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1452           0    0.0    0.0     0.0    0.0
+    matchPrefix'                                      Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1453           1    0.0    0.0     0.0    0.0
+     matchPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1454           1    0.0    0.0     0.0    0.0
+      hasPrefix                                       Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1455           1    0.0    0.0     0.0    0.0
+       hasPrefix.checkChar                            Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1456           2    0.0    0.0     0.0    0.0
+        lookCh                                        Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1457           2    0.0    0.0     0.0    0.0
+         look                                         Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1458           2    0.0    0.0     0.0    0.0
+ CAF:b6_r5j5                                          Lib.Lexer               <no location info>                                    1285           0    0.0    0.0     0.0    0.0
+  skipWs                                              Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1431           0    0.0    0.0     0.0    0.0
+   skipWs.skipWs'                                     Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1432           0    0.0    0.0     0.0    0.0
+    matchPrefix'                                      Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1433           1    0.0    0.0     0.0    0.0
+     matchPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1434           1    0.0    0.0     0.0    0.0
+      hasPrefix                                       Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1437           1    0.0    0.0     0.0    0.0
+       hasPrefix.checkChar                            Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1439           2    0.0    0.0     0.0    0.0
+        lookCh                                        Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1440           2    0.0    0.0     0.0    0.0
+         look                                         Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1443           2    0.0    0.0     0.0    0.0
+ CAF:b7_r5j6                                          Lib.Lexer               <no location info>                                    1286           0    0.0    0.0     0.0    0.0
+  skipWs                                              Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1419           0    0.0    0.0     0.0    0.0
+   skipWs.skipWs'                                     Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1420           0    0.0    0.0     0.0    0.0
+    lookPred                                          Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1421           1    0.0    0.0     0.0    0.0
+     look                                             Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1423           1    0.0    0.0     0.0    0.0
+ CAF:b8_r5jB                                          Lib.Lexer               <no location info>                                    1306           0    0.0    0.0     0.0    0.0
+  lexIdent                                            Lib.Lexer               src/Lib/Lexer.hs:(246,1)-(250,22)                     1866           0    0.0    0.0     0.0    0.0
+   lookPred                                           Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1867           1    0.0    0.0     0.0    0.0
+    look                                              Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1869           1    0.0    0.0     0.0    0.0
+ CAF:b9_r5jK                                          Lib.Lexer               <no location info>                                    1311           0    0.0    0.0     0.0    0.0
+  lexIdent                                            Lib.Lexer               src/Lib/Lexer.hs:(246,1)-(250,22)                     1843           0    0.0    0.0     0.0    0.0
+   andM                                               Control.Monad.Loops     src/Control/Monad/Loops.hs:(308,1)-(313,33)           1844           2    0.0    0.0     0.0    0.0
+ CAF:b_r5hV                                           Lib.Lexer               <no location info>                                    1243           0    0.0    0.0     0.0    0.0
+  isIdentStart                                        Lib.Lexer               src/Lib/Lexer.hs:(239,1)-(243,50)                     1823           0    0.0    0.0     0.0    0.0
+   lookCh                                             Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1824           1    0.0    0.0     0.0    0.0
+    look                                              Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1826           1    0.0    0.0     0.0    0.0
+ CAF:charPrefixes2_r5fV                               Lib.Lexer               <no location info>                                    1214           0    0.0    0.0     0.0    0.0
+ CAF:charPrefixes4_r5fX                               Lib.Lexer               <no location info>                                    1215           0    0.0    0.0     0.0    0.0
+ CAF:charPrefixes6_r5fZ                               Lib.Lexer               <no location info>                                    1216           0    0.0    0.0     0.0    0.0
+ CAF:charPrefixes8_r5g1                               Lib.Lexer               <no location info>                                    1217           0    0.0    0.0     0.0    0.0
+ CAF:charPrefixes_r2L9                                Lib.Lexer               src/Lib/Lexer.hs:147:1-12                             1218           0    0.0    0.0     0.0    0.0
+  charPrefixes                                        Lib.Lexer               src/Lib/Lexer.hs:147:1-38                             1676           1    0.0    0.0     0.0    0.0
+ CAF:checkIntEnd_r5ip                                 Lib.Lexer               <no location info>                                    1265           0    0.0    0.0     0.0    0.0
+  checkIntEnd                                         Lib.Lexer               src/Lib/Lexer.hs:276:1-84                             2007           1    0.0    0.0     0.0    0.0
+ CAF:eta11_r5kv                                       Lib.Lexer               <no location info>                                    1328           0    0.0    0.0     0.0    0.0
+  lexInt                                              Lib.Lexer               src/Lib/Lexer.hs:(289,1)-(297,26)                     2045           0    0.0    0.0     0.0    0.0
+   lexInt.determineIntKind                            Lib.Lexer               src/Lib/Lexer.hs:(293,5)-(297,26)                     2046           0    0.0    0.0     0.0    0.0
+    ifM                                               Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   2047           1    0.0    0.0     0.0    0.0
+ CAF:eta14_r5kH                                       Lib.Lexer               <no location info>                                    1337           0    0.0    0.0     0.0    0.0
+  nextToken                                           Lib.Lexer               src/Lib/Lexer.hs:(300,1)-(321,65)                     1609           0    0.0    0.0     0.0    0.0
+   lexString                                          Lib.Lexer               src/Lib/Lexer.hs:(196,1)-(215,33)                     1610           0    0.0    0.0     0.0    0.0
+    lexString.loop                                    Lib.Lexer               src/Lib/Lexer.hs:(205,5)-(215,33)                     1611           0    0.0    0.0     0.0    0.0
+     move                                             Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1612           1    0.0    0.0     0.0    0.0
+ CAF:eta17_r5kU                                       Lib.Lexer               <no location info>                                    1344           0    0.0    0.0     0.0    0.0
+  nextToken                                           Lib.Lexer               src/Lib/Lexer.hs:(300,1)-(321,65)                     1738           0    0.0    0.0     0.0    0.0
+   lexChar                                            Lib.Lexer               src/Lib/Lexer.hs:(218,1)-(236,40)                     1739           0    0.0    0.0     0.0    0.0
+    lexChar.loop                                      Lib.Lexer               src/Lib/Lexer.hs:(226,5)-(236,40)                     1740           0    0.0    0.0     0.0    0.0
+     move                                             Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1741           1    0.0    0.0     0.0    0.0
+ CAF:eta1_r5i3                                        Lib.Lexer               <no location info>                                    1249           0    0.0    0.0     0.0    0.0
+  lexIntHex                                           Lib.Lexer               src/Lib/Lexer.hs:(256,1)-(260,22)                     2062           0    0.0    0.0     0.0    0.0
+   whileM_                                            Control.Monad.Loops     src/Control/Monad/Loops.hs:(116,1)-(121,30)           2063           1    0.0    0.0     0.0    0.0
+ CAF:eta2_r5i9                                        Lib.Lexer               <no location info>                                    1255           0    0.0    0.0     0.0    0.0
+  lexIntOctal                                         Lib.Lexer               src/Lib/Lexer.hs:(263,1)-(266,21)                     2096           0    0.0    0.0     0.0    0.0
+   ifM                                                Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   2097           1    0.0    0.0     0.0    0.0
+ CAF:eta3_r5id                                        Lib.Lexer               <no location info>                                    1259           0    0.0    0.0     0.0    0.0
+  lexIntDecimal                                       Lib.Lexer               src/Lib/Lexer.hs:(269,1)-(273,22)                     1949           0    0.0    0.0     0.0    0.0
+   whileM_                                            Control.Monad.Loops     src/Control/Monad/Loops.hs:(116,1)-(121,30)           1950           1    0.0    0.0     0.0    0.0
+ CAF:eta4_r5iU                                        Lib.Lexer               <no location info>                                    1278           0    0.0    0.0     0.0    0.0
+  skipWs                                              Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1476           0    0.0    0.0     0.0    0.0
+   skipWs.skipWs'                                     Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1477           0    0.0    0.0     0.0    0.0
+    move                                              Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1478           1    0.0    0.0     0.0    0.0
+ CAF:eta5_r5jb                                        Lib.Lexer               <no location info>                                    1288           0    0.0    0.0     0.0    0.0
+  skipWs                                              Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1482           0    0.0    0.0     0.0    0.0
+   skipWs.skipWs'                                     Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1483           1    0.0    0.0     0.0    0.0
+ CAF:eta6_r5jl                                        Lib.Lexer               <no location info>                                    1296           0    0.0    0.0     0.0    0.0
+  lexPunct                                            Lib.Lexer               src/Lib/Lexer.hs:(124,1)-(138,37)                     1513           0    0.0    0.0     0.0    0.0
+   lexPunct.lexPunct'                                 Lib.Lexer               src/Lib/Lexer.hs:(130,5)-(138,37)                     1514           0    0.0    0.0     0.0    0.0
+    move                                              Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1515           1    0.0    0.0     0.0    0.0
+ CAF:eta7_r5kc                                        Lib.Lexer               <no location info>                                    1317           0    0.0    0.0     0.0    0.0
+  matchEscapeSeq                                      Lib.Lexer               src/Lib/Lexer.hs:(176,1)-(193,45)                     1755           0    0.0    0.0     0.0    0.0
+   matchEscapeSeq.checkOctal                          Lib.Lexer               src/Lib/Lexer.hs:(183,5)-(186,19)                     1756           0    0.0    0.0     0.0    0.0
+    matchEscapeSeq.checkOctDigit                      Lib.Lexer               src/Lib/Lexer.hs:(187,5)-(189,36)                     1759           3    0.0    0.0     0.0    0.0
+     lookPred                                         Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1761           3    0.0    0.0     0.0    0.0
+      look                                            Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1763           3    0.0    0.0     0.0    0.0
+ CAF:eta8_r5kd                                        Lib.Lexer               <no location info>                                    1318           0    0.0    0.0     0.0    0.0
+  matchEscapeSeq                                      Lib.Lexer               src/Lib/Lexer.hs:(176,1)-(193,45)                     1771           0    0.0    0.0     0.0    0.0
+   matchEscapeSeq.checkOctal                          Lib.Lexer               src/Lib/Lexer.hs:(183,5)-(186,19)                     1772           0    0.0    0.0     0.0    0.0
+    move                                              Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1773           1    0.0    0.0     0.0    0.0
+ CAF:eta9_r5kt                                        Lib.Lexer               <no location info>                                    1327           0    0.0    0.0     0.0    0.0
+  lexInt                                              Lib.Lexer               src/Lib/Lexer.hs:(289,1)-(297,26)                     2042           0    0.0    0.0     0.0    0.0
+   lexInt.determineIntKind                            Lib.Lexer               src/Lib/Lexer.hs:(293,5)-(297,26)                     2043           0    0.0    0.0     0.0    0.0
+    move                                              Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              2044           1    0.0    0.0     0.0    0.0
+ CAF:eta_r5i7                                         Lib.Lexer               <no location info>                                    1253           0    0.0    0.0     0.0    0.0
+  lexIntOctal                                         Lib.Lexer               src/Lib/Lexer.hs:(263,1)-(266,21)                     2075           0    0.0    0.0     0.0    0.0
+   whileM_                                            Control.Monad.Loops     src/Control/Monad/Loops.hs:(116,1)-(121,30)           2076           1    0.0    0.0     0.0    0.0
+ CAF:f1_r5je                                          Lib.Lexer               <no location info>                                    1291           0    0.0    0.0     0.0    0.0
+  skipWs                                              Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1448           0    0.0    0.0     0.0    0.0
+   skipWs.skipWs'                                     Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1449           0    0.0    0.0     0.0    0.0
+    ifM                                               Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1450           1    0.0    0.0     0.0    0.0
+ CAF:f2_r5jf                                          Lib.Lexer               <no location info>                                    1292           0    0.0    0.0     0.0    0.0
+  skipWs                                              Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1428           0    0.0    0.0     0.0    0.0
+   skipWs.skipWs'                                     Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1429           0    0.0    0.0     0.0    0.0
+    ifM                                               Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1430           1    0.0    0.0     0.0    0.0
+ CAF:f3_r5jL                                          Lib.Lexer               <no location info>                                    1312           0    0.0    0.0     0.0    0.0
+  lexIdent                                            Lib.Lexer               src/Lib/Lexer.hs:(246,1)-(250,22)                     1864           0    0.0    0.0     0.0    0.0
+   ifM                                                Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1865           1    0.0    0.0     0.0    0.0
+ CAF:f4_r5kk                                          Lib.Lexer               <no location info>                                    1323           0    0.0    0.0     0.0    0.0
+  matchEscapeSeq                                      Lib.Lexer               src/Lib/Lexer.hs:(176,1)-(193,45)                     1777           0    0.0    0.0     0.0    0.0
+   ifM                                                Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1778           1    0.0    0.0     0.0    0.0
+ CAF:f5_r5kC                                          Lib.Lexer               <no location info>                                    1332           0    0.0    0.0     0.0    0.0
+  lexInt                                              Lib.Lexer               src/Lib/Lexer.hs:(289,1)-(297,26)                     1935           0    0.0    0.0     0.0    0.0
+   lexInt.determineIntKind                            Lib.Lexer               src/Lib/Lexer.hs:(293,5)-(297,26)                     1936           0    0.0    0.0     0.0    0.0
+    ifM                                               Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1937           1    0.0    0.0     0.0    0.0
+ CAF:f6_r5kD                                          Lib.Lexer               <no location info>                                    1333           0    0.0    0.0     0.0    0.0
+  lexInt                                              Lib.Lexer               src/Lib/Lexer.hs:(289,1)-(297,26)                     1915           0    0.0    0.0     0.0    0.0
+   lexInt.determineIntKind                            Lib.Lexer               src/Lib/Lexer.hs:(293,5)-(297,26)                     1916           0    0.0    0.0     0.0    0.0
+    ifM                                               Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1917           1    0.0    0.0     0.0    0.0
+ CAF:f7_r5l1                                          Lib.Lexer               <no location info>                                    1349           0    0.0    0.0     0.0    0.0
+  nextToken                                           Lib.Lexer               src/Lib/Lexer.hs:(300,1)-(321,65)                     1881           0    0.0    0.0     0.0    0.0
+   ifM                                                Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1882           1    0.0    0.0     0.0    0.0
+ CAF:f8_r5l2                                          Lib.Lexer               <no location info>                                    1350           0    0.0    0.0     0.0    0.0
+  nextToken                                           Lib.Lexer               src/Lib/Lexer.hs:(300,1)-(321,65)                     1818           0    0.0    0.0     0.0    0.0
+   ifM                                                Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1819           1    0.0    0.0     0.0    0.0
+ CAF:f_r5hZ                                           Lib.Lexer               <no location info>                                    1245           0    0.0    0.0     0.0    0.0
+  isIdentStart                                        Lib.Lexer               src/Lib/Lexer.hs:(239,1)-(243,50)                     1831           0    0.0    0.0     0.0    0.0
+   lookPred                                           Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1832           1    0.0    0.0     0.0    0.0
+    look                                              Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1834           1    0.0    0.0     0.0    0.0
+ CAF:go1_r5i6                                         Lib.Lexer               <no location info>                                    1252           0    0.0    0.0     0.0    0.0
+  lexIntOctal                                         Lib.Lexer               src/Lib/Lexer.hs:(263,1)-(266,21)                     2077           0    0.0    0.0     0.0    0.0
+   whileM_                                            Control.Monad.Loops     src/Control/Monad/Loops.hs:(116,1)-(121,30)           2078           0    0.0    0.0     0.0    0.0
+    whileM_.go                                        Control.Monad.Loops     src/Control/Monad/Loops.hs:(117,11)-(121,30)          2079           1    0.0    0.0     0.0    0.0
+ CAF:go2_r5ic                                         Lib.Lexer               <no location info>                                    1258           0    0.0    0.0     0.0    0.0
+  lexIntDecimal                                       Lib.Lexer               src/Lib/Lexer.hs:(269,1)-(273,22)                     1951           0    0.0    0.0     0.0    0.0
+   whileM_                                            Control.Monad.Loops     src/Control/Monad/Loops.hs:(116,1)-(121,30)           1952           0    0.0    0.0     0.0    0.0
+    whileM_.go                                        Control.Monad.Loops     src/Control/Monad/Loops.hs:(117,11)-(121,30)          1953           1    0.0    0.0     0.0    0.0
+ CAF:go_r5i2                                          Lib.Lexer               <no location info>                                    1248           0    0.0    0.0     0.0    0.0
+  lexIntHex                                           Lib.Lexer               src/Lib/Lexer.hs:(256,1)-(260,22)                     2064           0    0.0    0.0     0.0    0.0
+   whileM_                                            Control.Monad.Loops     src/Control/Monad/Loops.hs:(116,1)-(121,30)           2065           0    0.0    0.0     0.0    0.0
+    whileM_.go                                        Control.Monad.Loops     src/Control/Monad/Loops.hs:(117,11)-(121,30)          2066           1    0.0    0.0     0.0    0.0
+ CAF:isIdentStart_r5i0                                Lib.Lexer               <no location info>                                    1246           0    0.0    0.0     0.0    0.0
+  isIdentStart                                        Lib.Lexer               src/Lib/Lexer.hs:(239,1)-(243,50)                     1820           1    0.0    0.0     0.0    0.0
+   ifM                                                Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1821           1    0.0    0.0     0.0    0.0
+ CAF:isIntStart_r2Lj                                  Lib.Lexer               src/Lib/Lexer.hs:253:1-10                             1241           0    0.0    0.0     0.0    0.0
+  isIntStart                                          Lib.Lexer               src/Lib/Lexer.hs:253:1-31                             1883           1    0.0    0.0     0.0    0.0
+   lookPred                                           Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1884           1    0.0    0.0     0.0    0.0
+    look                                              Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1887           1    0.0    0.0     0.0    0.0
+ CAF:lexIdent_r5jM                                    Lib.Lexer               <no location info>                                    1313           0    0.0    0.0     0.0    0.0
+  lexIdent                                            Lib.Lexer               src/Lib/Lexer.hs:(246,1)-(250,22)                     1840           1    0.0    0.0     0.0    0.0
+   ifM                                                Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1841           1    0.0    0.0     0.0    0.0
+ CAF:lexIntDecimal_r5ie                               Lib.Lexer               <no location info>                                    1260           0    0.0    0.0     0.0    0.0
+  lexIntDecimal                                       Lib.Lexer               src/Lib/Lexer.hs:(269,1)-(273,22)                     1938           1    0.0    0.0     0.0    0.0
+   ifM                                                Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1939           1    0.0    0.0     0.0    0.0
+ CAF:lexIntHex_r5i4                                   Lib.Lexer               <no location info>                                    1250           0    0.0    0.0     0.0    0.0
+  lexIntHex                                           Lib.Lexer               src/Lib/Lexer.hs:(256,1)-(260,22)                     2048           1    0.0    0.0     0.0    0.0
+   ifM                                                Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   2049           1    0.0    0.0     0.0    0.0
+ CAF:lexIntOctal_r5ia                                 Lib.Lexer               <no location info>                                    1256           0    0.0    0.0     0.0    0.0
+  lexIntOctal                                         Lib.Lexer               src/Lib/Lexer.hs:(263,1)-(266,21)                     2073           1    0.0    0.0     0.0    0.0
+ CAF:lexIntSuffix_r5iT                                Lib.Lexer               <no location info>                                    1277           0    0.0    0.0     0.0    0.0
+  lexIntSuffix                                        Lib.Lexer               src/Lib/Lexer.hs:(279,1)-(286,33)                     1956           1    0.0    0.0     0.0    0.0
+ CAF:lexInt_r5kF                                      Lib.Lexer               <no location info>                                    1335           0    0.0    0.0     0.0    0.0
+  lexInt                                              Lib.Lexer               src/Lib/Lexer.hs:(289,1)-(297,26)                     1892           1    0.0    0.0     0.0    0.0
+ CAF:lexPunct_r5jx                                    Lib.Lexer               <no location info>                                    1303           0    0.0    0.0     0.0    0.0
+  lexPunct                                            Lib.Lexer               src/Lib/Lexer.hs:(124,1)-(138,37)                     1501           1    0.0    0.0     0.0    0.0
+ CAF:lexUniversalCharName_r5jz                        Lib.Lexer               <no location info>                                    1305           0    0.0    0.0     0.0    0.0
+  lexUniversalCharName                                Lib.Lexer               src/Lib/Lexer.hs:(166,1)-(170,25)                     1794           1    0.0    0.0     0.0    0.0
+ CAF:lvl105_r5ka                                      Lib.Lexer               <no location info>                                    1316           0    0.0    0.0     0.0    0.0
+  matchEscapeSeq                                      Lib.Lexer               src/Lib/Lexer.hs:(176,1)-(193,45)                     1757           0    0.0    0.0     0.0    0.0
+   matchEscapeSeq.checkOctal                          Lib.Lexer               src/Lib/Lexer.hs:(183,5)-(186,19)                     1758           0    0.0    0.0     0.0    0.0
+ CAF:lvl110_r5ko                                      Lib.Lexer               <no location info>                                    1324           0    0.0    0.0     0.0    0.0
+ CAF:lvl111_r5kp                                      Lib.Lexer               <no location info>                                    1325           0    0.0    0.0     0.0    0.0
+ CAF:lvl117_r5kQ                                      Lib.Lexer               <no location info>                                    1342           0    0.0    0.0     0.0    0.0
+ CAF:lvl20_r5hQ                                       Lib.Lexer               <no location info>                                    1239           0    0.0    0.0     0.0    0.0
+ CAF:lvl27_r5i5                                       Lib.Lexer               <no location info>                                    1251           0    0.0    0.0     0.0    0.0
+  lexIntOctal                                         Lib.Lexer               src/Lib/Lexer.hs:(263,1)-(266,21)                     2082           0    0.0    0.0     0.0    0.0
+   lookPred                                           Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       2083           1    0.0    0.0     0.0    0.0
+    look                                              Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2085           1    0.0    0.0     0.0    0.0
+ CAF:lvl36_r5ir                                       Lib.Lexer               <no location info>                                    1266           0    0.0    0.0     0.0    0.0
+ CAF:lvl38_r5it                                       Lib.Lexer               <no location info>                                    1267           0    0.0    0.0     0.0    0.0
+ CAF:lvl40_r5iv                                       Lib.Lexer               <no location info>                                    1268           0    0.0    0.0     0.0    0.0
+ CAF:lvl42_r5ix                                       Lib.Lexer               <no location info>                                    1269           0    0.0    0.0     0.0    0.0
+ CAF:lvl49_r5iF                                       Lib.Lexer               <no location info>                                    1271           0    0.0    0.0     0.0    0.0
+ CAF:lvl50_r5iG                                       Lib.Lexer               <no location info>                                    1272           0    0.0    0.0     0.0    0.0
+ CAF:lvl57_r5iO                                       Lib.Lexer               <no location info>                                    1274           0    0.0    0.0     0.0    0.0
+  lexIntSuffix                                        Lib.Lexer               src/Lib/Lexer.hs:(279,1)-(286,33)                     1985           0    0.0    0.0     0.0    0.0
+   lexIntSuffix.matchLAndU                            Lib.Lexer               src/Lib/Lexer.hs:286:5-33                             1986           1    0.0    0.0     0.0    0.0
+ CAF:lvl59_r5iQ                                       Lib.Lexer               <no location info>                                    1275           0    0.0    0.0     0.0    0.0
+  lexIntSuffix                                        Lib.Lexer               src/Lib/Lexer.hs:(279,1)-(286,33)                     1961           0    0.0    0.0     0.0    0.0
+   lexIntSuffix.matchUAndL                            Lib.Lexer               src/Lib/Lexer.hs:285:5-33                             1962           1    0.0    0.0     0.0    0.0
+ CAF:lvl69_r5jh                                       Lib.Lexer               <no location info>                                    1293           0    0.0    0.0     0.0    0.0
+  skipWs                                              Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1462           0    0.0    0.0     0.0    0.0
+   skipWs.skipWs'                                     Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1463           0    0.0    0.0     0.0    0.0
+    ifM                                               Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1464           1    0.0    0.0     0.0    0.0
+ CAF:lvl78_r5jE                                       Lib.Lexer               <no location info>                                    1308           0    0.0    0.0     0.0    0.0
+  lexIdent                                            Lib.Lexer               src/Lib/Lexer.hs:(246,1)-(250,22)                     1848           0    0.0    0.0     0.0    0.0
+   matchPrefix'                                       Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1849           0    0.0    0.0     0.0    0.0
+    matchPrefix                                       Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1850           1    0.0    0.0     0.0    0.0
+     hasPrefix                                        Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1853           1    0.0    0.0     0.0    0.0
+      hasPrefix.checkChar                             Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1855           1    0.0    0.0     0.0    0.0
+       lookCh                                         Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1856           1    0.0    0.0     0.0    0.0
+        look                                          Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1859           1    0.0    0.0     0.0    0.0
+ CAF:lvl82_r5jI                                       Lib.Lexer               <no location info>                                    1310           0    0.0    0.0     0.0    0.0
+  lexIdent                                            Lib.Lexer               src/Lib/Lexer.hs:(246,1)-(250,22)                     1846           0    0.0    0.0     0.0    0.0
+   matchPrefix'                                       Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1847           1    0.0    0.0     0.0    0.0
+ CAF:lxIsCharStart_r2La                               Lib.Lexer               src/Lib/Lexer.hs:150:1-13                             1262           0    0.0    0.0     0.0    0.0
+  lxIsCharStart                                       Lib.Lexer               src/Lib/Lexer.hs:150:1-46                             1675           1    0.0    0.0     0.0    0.0
+   anyM                                               Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1677           5    0.0    0.0     0.0    0.0
+    matchPrefix'                                      Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1680           4    0.0    0.0     0.0    0.0
+     matchPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1681           4    0.0    0.0     0.0    0.0
+      hasPrefix                                       Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1684           4    0.0    0.0     0.0    0.0
+       hasPrefix.checkChar                            Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1686           7    0.0    0.0     0.0    0.0
+        lookCh                                        Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1687           7    0.0    0.0     0.0    0.0
+         look                                         Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1690           7    0.0    0.0     0.0    0.0
+ CAF:lxIsPunct_r2L5                                   Lib.Lexer               src/Lib/Lexer.hs:121:1-9                              1240           0    0.0    0.0     0.0    0.0
+  lxIsPunct                                           Lib.Lexer               src/Lib/Lexer.hs:121:1-40                             1490           1    0.0    0.0     0.0    0.0
+   lookPred                                           Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1491           1    0.0    0.0     0.0    0.0
+    look                                              Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1494           1    0.0    0.0     0.0    0.0
+ CAF:lxIsStringStart_r2L8                             Lib.Lexer               src/Lib/Lexer.hs:144:1-15                             1261           0    0.0    0.0     0.0    0.0
+  lxIsStringStart                                     Lib.Lexer               src/Lib/Lexer.hs:144:1-50                             1541           1    0.0    0.0     0.0    0.0
+   anyM                                               Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1543           6    0.0    0.0     0.0    0.0
+    matchPrefix'                                      Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1546           5    0.0    0.0     0.0    0.0
+     matchPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1547           5    0.0    0.0     0.0    0.0
+      hasPrefix                                       Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1550           5    0.0    0.0     0.0    0.0
+       hasPrefix.checkChar                            Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1552          10    0.0    0.0     0.0    0.0
+        lookCh                                        Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1553          10    0.0    0.0     0.0    0.0
+         look                                         Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1556          10    0.0    0.0     0.0    0.0
+ CAF:m1_r5hX                                          Lib.Lexer               <no location info>                                    1244           0    0.0    0.0     0.0    0.0
+  isIdentStart                                        Lib.Lexer               src/Lib/Lexer.hs:(239,1)-(243,50)                     2101           0    0.0    0.0     0.0    0.0
+   checkUniversalCharName                             Lib.Lexer               src/Lib/Lexer.hs:(153,1)-(163,55)                     2102           1    0.0    0.0     0.0    0.0
+    look                                              Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2104           1    0.0    0.0     0.0    0.0
+ CAF:m2_r5ib                                          Lib.Lexer               <no location info>                                    1257           0    0.0    0.0     0.0    0.0
+  lexIntDecimal                                       Lib.Lexer               src/Lib/Lexer.hs:(269,1)-(273,22)                     1941           0    0.0    0.0     0.0    0.0
+   lookPred                                           Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1942           1    0.0    0.0     0.0    0.0
+    look                                              Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1944           1    0.0    0.0     0.0    0.0
+ CAF:m3_r5io                                          Lib.Lexer               <no location info>                                    1264           0    0.0    0.0     0.0    0.0
+  checkIntEnd                                         Lib.Lexer               src/Lib/Lexer.hs:276:1-84                             2009           0    0.0    0.0     0.0    0.0
+   orM                                                Control.Monad.Loops     src/Control/Monad/Loops.hs:(317,1)-(322,27)           2010           5    0.0    0.0     0.0    0.0
+ CAF:m4_r5iS                                          Lib.Lexer               <no location info>                                    1276           0    0.0    0.0     0.0    0.0
+  lexIntSuffix                                        Lib.Lexer               src/Lib/Lexer.hs:(279,1)-(286,33)                     1958           0    0.0    0.0     0.0    0.0
+   anyM                                               Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1959           3    0.0    0.0     0.0    0.0
+    andM                                              Control.Monad.Loops     src/Control/Monad/Loops.hs:(308,1)-(313,33)           1963           2    0.0    0.0     0.0    0.0
+ CAF:m5_r5j7                                          Lib.Lexer               <no location info>                                    1287           0    0.0    0.0     0.0    0.0
+  skipWs                                              Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1416           0    0.0    0.0     0.0    0.0
+   skipWs.skipWs'                                     Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1417           0    0.0    0.0     0.0    0.0
+    look                                              Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1418           1    0.0    0.0     0.0    0.0
+ CAF:m6_r5jq                                          Lib.Lexer               <no location info>                                    1300           0    0.0    0.0     0.0    0.0
+  lexPunct                                            Lib.Lexer               src/Lib/Lexer.hs:(124,1)-(138,37)                     1503           0    0.0    0.0     0.0    0.0
+   look                                               Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1504           1    0.0    0.0     0.0    0.0
+ CAF:m7_r5jy                                          Lib.Lexer               <no location info>                                    1304           0    0.0    0.0     0.0    0.0
+  lexUniversalCharName                                Lib.Lexer               src/Lib/Lexer.hs:(166,1)-(170,25)                     1796           0    0.0    0.0     0.0    0.0
+   checkUniversalCharName                             Lib.Lexer               src/Lib/Lexer.hs:(153,1)-(163,55)                     1797           1    0.0    0.0     0.0    0.0
+    look                                              Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1799           1    0.0    0.0     0.0    0.0
+ CAF:m8_r5kE                                          Lib.Lexer               <no location info>                                    1334           0    0.0    0.0     0.0    0.0
+  lexInt                                              Lib.Lexer               src/Lib/Lexer.hs:(289,1)-(297,26)                     1894           0    0.0    0.0     0.0    0.0
+   lexInt.determineIntKind                            Lib.Lexer               src/Lib/Lexer.hs:(293,5)-(297,26)                     1895           1    0.0    0.0     0.0    0.0
+    ifM                                               Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1896           1    0.0    0.0     0.0    0.0
+ CAF:m9_r5kG                                          Lib.Lexer               <no location info>                                    1336           0    0.0    0.0     0.0    0.0
+  nextToken                                           Lib.Lexer               src/Lib/Lexer.hs:(300,1)-(321,65)                     1484           0    0.0    0.0     0.0    0.0
+   look                                               Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1485           1    0.0    0.0     0.0    0.0
+ CAF:main1                                            Main                    <no location info>                                    1394           0    0.0    0.0     0.0    0.0
+  main                                                Main                    app/Main.hs:7:1-31                                    1396           1    0.0    0.0     0.0    0.0
+ CAF:matchL_r5iC                                      Lib.Lexer               src/Lib/Lexer.hs:284:5-10                             1270           0    0.0    0.0     0.0    0.0
+  lexIntSuffix                                        Lib.Lexer               src/Lib/Lexer.hs:(279,1)-(286,33)                     1987           0    0.0    0.0     0.0    0.0
+   lexIntSuffix.matchL                                Lib.Lexer               src/Lib/Lexer.hs:284:5-53                             1988           1    0.0    0.0     0.0    0.0
+    anyM                                              Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1989           5    0.0    0.0     0.0    0.0
+     matchPrefix'                                     Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1992           4    0.0    0.0     0.0    0.0
+      matchPrefix                                     Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1993           4    0.0    0.0     0.0    0.0
+       hasPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1996           4    0.0    0.0     0.0    0.0
+        hasPrefix.checkChar                           Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1998           6    0.0    0.0     0.0    0.0
+         lookCh                                       Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1999           6    0.0    0.0     0.0    0.0
+          look                                        Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2002           6    0.0    0.0     0.0    0.0
+ CAF:matchU_r5iJ                                      Lib.Lexer               src/Lib/Lexer.hs:283:5-10                             1273           0    0.0    0.0     0.0    0.0
+  lexIntSuffix                                        Lib.Lexer               src/Lib/Lexer.hs:(279,1)-(286,33)                     1965           0    0.0    0.0     0.0    0.0
+   lexIntSuffix.matchU                                Lib.Lexer               src/Lib/Lexer.hs:283:5-41                             1966           1    0.0    0.0     0.0    0.0
+    anyM                                              Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1967           3    0.0    0.0     0.0    0.0
+     matchPrefix'                                     Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1970           2    0.0    0.0     0.0    0.0
+      matchPrefix                                     Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1971           2    0.0    0.0     0.0    0.0
+       hasPrefix                                      Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1974           2    0.0    0.0     0.0    0.0
+        hasPrefix.checkChar                           Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1976           2    0.0    0.0     0.0    0.0
+         lookCh                                       Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1977           2    0.0    0.0     0.0    0.0
+          look                                        Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1980           2    0.0    0.0     0.0    0.0
+ CAF:move1_r5h8                                       Lib.Lexer               <no location info>                                    1227           0    0.0    0.0     0.0    0.0
+  move1                                               Lib.Lexer               src/Lib/Lexer.hs:47:1-14                              1875           1    0.0    0.0     0.0    0.0
+   move                                               Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1876           1    0.0    0.0     0.0    0.0
+ CAF:prefix1_r5j1                                     Lib.Lexer               src/Lib/Lexer.hs:96:14-19                             1282           0    0.0    0.0     0.0    0.0
+ CAF:prefix2_r5j4                                     Lib.Lexer               src/Lib/Lexer.hs:96:14-19                             1284           0    0.0    0.0     0.0    0.0
+ CAF:prefix3_r5jD                                     Lib.Lexer               src/Lib/Lexer.hs:96:14-19                             1307           0    0.0    0.0     0.0    0.0
+ CAF:prefix4_r5kg                                     Lib.Lexer               src/Lib/Lexer.hs:96:14-19                             1320           0    0.0    0.0     0.0    0.0
+ CAF:prefix5_r5kx                                     Lib.Lexer               src/Lib/Lexer.hs:96:14-19                             1329           0    0.0    0.0     0.0    0.0
+ CAF:prefix6_r5kM                                     Lib.Lexer               src/Lib/Lexer.hs:96:14-19                             1340           0    0.0    0.0     0.0    0.0
+ CAF:prefix_r5iW                                      Lib.Lexer               src/Lib/Lexer.hs:96:14-19                             1279           0    0.0    0.0     0.0    0.0
+ CAF:processFiles1                                    Lib.Process             <no location info>                                    1356           0    0.0    0.0     0.0    0.0
+  processFiles                                        Lib.Process             src/Lib/Process.hs:16:1-32                            1398           1    0.0    0.0     0.0    0.0
+ CAF:punctuators                                      Lib.Token               src/Lib/Token.hs:243:1-11                             1203           0    0.0    0.0     0.0    0.0
+  punctuators                                         Lib.Token               src/Lib/Token.hs:(243,1)-(295,9)                      1500           1    0.0    0.0     0.0    0.0
+ CAF:punctuators100                                   Lib.Token               <no location info>                                     942           0    0.0    0.0     0.0    0.0
+ CAF:punctuators103                                   Lib.Token               <no location info>                                     943           0    0.0    0.0     0.0    0.0
+ CAF:punctuators106                                   Lib.Token               <no location info>                                     944           0    0.0    0.0     0.0    0.0
+ CAF:punctuators109                                   Lib.Token               <no location info>                                     945           0    0.0    0.0     0.0    0.0
+ CAF:punctuators112                                   Lib.Token               <no location info>                                     946           0    0.0    0.0     0.0    0.0
+ CAF:punctuators115                                   Lib.Token               <no location info>                                     947           0    0.0    0.0     0.0    0.0
+ CAF:punctuators118                                   Lib.Token               <no location info>                                     948           0    0.0    0.0     0.0    0.0
+ CAF:punctuators121                                   Lib.Token               <no location info>                                     949           0    0.0    0.0     0.0    0.0
+ CAF:punctuators124                                   Lib.Token               <no location info>                                     950           0    0.0    0.0     0.0    0.0
+ CAF:punctuators127                                   Lib.Token               <no location info>                                     951           0    0.0    0.0     0.0    0.0
+ CAF:punctuators130                                   Lib.Token               <no location info>                                     952           0    0.0    0.0     0.0    0.0
+ CAF:punctuators133                                   Lib.Token               <no location info>                                     953           0    0.0    0.0     0.0    0.0
+ CAF:punctuators136                                   Lib.Token               <no location info>                                     954           0    0.0    0.0     0.0    0.0
+ CAF:punctuators139                                   Lib.Token               <no location info>                                     955           0    0.0    0.0     0.0    0.0
+ CAF:punctuators142                                   Lib.Token               <no location info>                                     956           0    0.0    0.0     0.0    0.0
+ CAF:punctuators145                                   Lib.Token               <no location info>                                     957           0    0.0    0.0     0.0    0.0
+ CAF:punctuators148                                   Lib.Token               <no location info>                                     958           0    0.0    0.0     0.0    0.0
+ CAF:punctuators151                                   Lib.Token               <no location info>                                     959           0    0.0    0.0     0.0    0.0
+ CAF:punctuators154                                   Lib.Token               <no location info>                                     960           0    0.0    0.0     0.0    0.0
+ CAF:punctuators157                                   Lib.Token               <no location info>                                     961           0    0.0    0.0     0.0    0.0
+ CAF:punctuators160                                   Lib.Token               <no location info>                                     962           0    0.0    0.0     0.0    0.0
+ CAF:punctuators163                                   Lib.Token               <no location info>                                     963           0    0.0    0.0     0.0    0.0
+ CAF:punctuators166                                   Lib.Token               <no location info>                                     964           0    0.0    0.0     0.0    0.0
+ CAF:punctuators169                                   Lib.Token               <no location info>                                     965           0    0.0    0.0     0.0    0.0
+ CAF:punctuators172                                   Lib.Token               <no location info>                                     966           0    0.0    0.0     0.0    0.0
+ CAF:punctuators175                                   Lib.Token               <no location info>                                     967           0    0.0    0.0     0.0    0.0
+ CAF:punctuators178                                   Lib.Token               <no location info>                                     968           0    0.0    0.0     0.0    0.0
+ CAF:punctuators181                                   Lib.Token               <no location info>                                     969           0    0.0    0.0     0.0    0.0
+ CAF:punctuators184                                   Lib.Token               <no location info>                                     970           0    0.0    0.0     0.0    0.0
+ CAF:punctuators187                                   Lib.Token               <no location info>                                     971           0    0.0    0.0     0.0    0.0
+ CAF:punctuators190                                   Lib.Token               <no location info>                                     972           0    0.0    0.0     0.0    0.0
+ CAF:punctuators193                                   Lib.Token               <no location info>                                     973           0    0.0    0.0     0.0    0.0
+ CAF:punctuators196                                   Lib.Token               <no location info>                                     974           0    0.0    0.0     0.0    0.0
+ CAF:punctuators199                                   Lib.Token               <no location info>                                     975           0    0.0    0.0     0.0    0.0
+ CAF:punctuators52                                    Lib.Token               <no location info>                                     926           0    0.0    0.0     0.0    0.0
+ CAF:punctuators55                                    Lib.Token               <no location info>                                     927           0    0.0    0.0     0.0    0.0
+ CAF:punctuators58                                    Lib.Token               <no location info>                                     928           0    0.0    0.0     0.0    0.0
+ CAF:punctuators61                                    Lib.Token               <no location info>                                     929           0    0.0    0.0     0.0    0.0
+ CAF:punctuators64                                    Lib.Token               <no location info>                                     930           0    0.0    0.0     0.0    0.0
+ CAF:punctuators67                                    Lib.Token               <no location info>                                     931           0    0.0    0.0     0.0    0.0
+ CAF:punctuators70                                    Lib.Token               <no location info>                                     932           0    0.0    0.0     0.0    0.0
+ CAF:punctuators73                                    Lib.Token               <no location info>                                     933           0    0.0    0.0     0.0    0.0
+ CAF:punctuators76                                    Lib.Token               <no location info>                                     934           0    0.0    0.0     0.0    0.0
+ CAF:punctuators79                                    Lib.Token               <no location info>                                     935           0    0.0    0.0     0.0    0.0
+ CAF:punctuators82                                    Lib.Token               <no location info>                                     936           0    0.0    0.0     0.0    0.0
+ CAF:punctuators85                                    Lib.Token               <no location info>                                     937           0    0.0    0.0     0.0    0.0
+ CAF:punctuators88                                    Lib.Token               <no location info>                                     938           0    0.0    0.0     0.0    0.0
+ CAF:punctuators91                                    Lib.Token               <no location info>                                     939           0    0.0    0.0     0.0    0.0
+ CAF:punctuators94                                    Lib.Token               <no location info>                                     940           0    0.0    0.0     0.0    0.0
+ CAF:punctuators97                                    Lib.Token               <no location info>                                     941           0    0.0    0.0     0.0    0.0
+ CAF:punctuatorsNext                                  Lib.Token               src/Lib/Token.hs:301:1-15                             1206           0    0.0    0.0     0.0    0.0
+  punctuatorsNext                                     Lib.Token               src/Lib/Token.hs:(301,1)-(303,82)                     1510           1    0.0    0.0     0.0    0.0
+   punctuatorsNext.initialMap                         Lib.Token               src/Lib/Token.hs:303:5-82                             1511           1    0.0    0.0     0.0    0.0
+ CAF:skipWs_r2L4                                      Lib.Lexer               src/Lib/Lexer.hs:99:1-6                               1294           0    0.0    0.0     0.0    0.0
+  skipWs                                              Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1412           1    0.0    0.0     0.0    0.0
+   skipWs.skipWs'                                     Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1413           1    0.0    0.0     0.0    0.0
+ CAF:stringPrefixes10_r5fP                            Lib.Lexer               <no location info>                                    1212           0    0.0    0.0     0.0    0.0
+ CAF:stringPrefixes2_r5fH                             Lib.Lexer               <no location info>                                    1208           0    0.0    0.0     0.0    0.0
+ CAF:stringPrefixes4_r5fJ                             Lib.Lexer               <no location info>                                    1209           0    0.0    0.0     0.0    0.0
+ CAF:stringPrefixes6_r5fL                             Lib.Lexer               <no location info>                                    1210           0    0.0    0.0     0.0    0.0
+ CAF:stringPrefixes8_r5fN                             Lib.Lexer               <no location info>                                    1211           0    0.0    0.0     0.0    0.0
+ CAF:stringPrefixes_r2L7                              Lib.Lexer               src/Lib/Lexer.hs:141:1-14                             1213           0    0.0    0.0     0.0    0.0
+  stringPrefixes                                      Lib.Lexer               src/Lib/Lexer.hs:141:1-52                             1542           1    0.0    0.0     0.0    0.0
+ CAF:t1_r5jd                                          Lib.Lexer               <no location info>                                    1290           0    0.0    0.0     0.0    0.0
+  skipWs                                              Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1460           0    0.0    0.0     0.0    0.0
+   skipWs.skipWs'                                     Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1461           1    0.0    0.0     0.0    0.0
+ CAF:t2_r5ke                                          Lib.Lexer               <no location info>                                    1319           0    0.0    0.0     0.0    0.0
+  matchEscapeSeq                                      Lib.Lexer               src/Lib/Lexer.hs:(176,1)-(193,45)                     1752           0    0.0    0.0     0.0    0.0
+   matchEscapeSeq.checkOctal                          Lib.Lexer               src/Lib/Lexer.hs:(183,5)-(186,19)                     1753           1    0.0    0.0     0.0    0.0
+ CAF:t3_r5kA                                          Lib.Lexer               <no location info>                                    1331           0    0.0    0.0     0.0    0.0
+  lexInt                                              Lib.Lexer               src/Lib/Lexer.hs:(289,1)-(297,26)                     2070           0    0.0    0.0     0.0    0.0
+   lexInt.determineIntKind                            Lib.Lexer               src/Lib/Lexer.hs:(293,5)-(297,26)                     2071           0    0.0    0.0     0.0    0.0
+    ifM                                               Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   2072           1    0.0    0.0     0.0    0.0
+ CAF:t_r5jc                                           Lib.Lexer               <no location info>                                    1289           0    0.0    0.0     0.0    0.0
+  skipWs                                              Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1530           0    0.0    0.0     0.0    0.0
+   skipWs.skipWs'                                     Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1531           6    0.0    0.0     0.0    0.0
+    ifM                                               Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1532           5    0.0    0.0     0.0    0.0
+ main                                                 Main                    app/Main.hs:7:1-31                                    1397           0    0.0    0.0    99.5  100.0
+  processFiles                                        Lib.Process             src/Lib/Process.hs:16:1-32                            1399           0    0.0    0.0    99.5  100.0
+   processFile                                        Lib.Process             src/Lib/Process.hs:(9,1)-(13,22)                      1400           1    0.0    0.0    99.5  100.0
+    readTextDevice                                    Data.Text.Internal.IO   libraries/text/src/Data/Text/Internal/IO.hs:133:39-64 1401           2    0.0    0.0     0.0    0.0
+    processFile.tokens                                Lib.Process             src/Lib/Process.hs:12:9-51                            1402           1    0.0    0.0    99.5  100.0
+     initLexer                                        Lib.Lexer               src/Lib/Lexer.hs:41:1-68                              1411           1    0.0    0.0     0.0    0.0
+     intoTokens                                       Lib.Lexer               src/Lib/Lexer.hs:327:1-53                             1403           1    0.0    0.0    99.5  100.0
+      allTokens                                       Lib.Lexer               src/Lib/Lexer.hs:324:1-26                             1405           0    0.0    0.0    99.5  100.0
+       nextToken                                      Lib.Lexer               src/Lib/Lexer.hs:(300,1)-(321,65)                     1408           0    0.0    0.0    99.5  100.0
+        ifM                                           Control.Monad.Extra     src/Control/Monad/Extra.hs:204:1-41                   1409         558   15.6    7.3    99.5  100.0
+         lexString.loop                               Lib.Lexer               src/Lib/Lexer.hs:(205,5)-(215,33)                     1613          84    0.0    0.0     0.0    0.0
+         tokenHasPrefix                               Lib.Lexer               src/Lib/Lexer.hs:(80,1)-(86,9)                        1563          54    0.0    0.0     0.0    0.0
+          lxSrc                                       Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1569          92    0.0    0.0     0.0    0.0
+          tokenHasPrefix.index                        Lib.Lexer               src/Lib/Lexer.hs:82:9-31                              1564          54    0.0    0.0     0.0    0.0
+           lxPos                                      Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1565          54    0.0    0.0     0.0    0.0
+         lexString                                    Lib.Lexer               src/Lib/Lexer.hs:(196,1)-(215,33)                     1562          12    0.0    0.0     0.0    0.0
+          lexString.loop                              Lib.Lexer               src/Lib/Lexer.hs:(205,5)-(215,33)                     1570          12    0.0    0.0     0.0    0.0
+         matchEscapeSeq                               Lib.Lexer               src/Lib/Lexer.hs:(176,1)-(193,45)                     1620          12    0.0    0.0     0.0    0.0
+          anyM                                        Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1624           0    0.0    0.0     0.0    0.0
+           hasPrefix'                                 Lib.Lexer               src/Lib/Lexer.hs:77:1-38                              1783           0    0.0    0.0     0.0    0.0
+            hasPrefix                                 Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1784           0    0.0    0.0     0.0    0.0
+             hasPrefix.checkChar                      Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1787           0    0.0    0.0     0.0    0.0
+              lookCh                                  Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1788           0    0.0    0.0     0.0    0.0
+               look                                   Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1790           0    0.0    0.0     0.0    0.0
+                lxSrc                                 Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1793           2    0.0    0.0     0.0    0.0
+                look.index                            Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1791           1    0.0    0.0     0.0    0.0
+                 lxPos                                Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1792           1    0.0    0.0     0.0    0.0
+           matchPrefix'                               Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1627           0    0.0    0.0     0.0    0.0
+            matchPrefix                               Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1628           0    0.0    0.0     0.0    0.0
+             move                                     Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1749           4    0.0    0.0     0.0    0.0
+              move.\                                  Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1750           4    0.0    0.0     0.0    0.0
+               lxPos                                  Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1751           4    0.0    0.0     0.0    0.0
+             hasPrefix                                Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1630           0    0.0    0.0     0.0    0.0
+              hasPrefix.checkChar                     Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1633           0    0.0    0.0     0.0    0.0
+               lookCh                                 Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1634           0    0.0    0.0     0.0    0.0
+                look                                  Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1636           0    0.0    0.0     0.0    0.0
+                 lxSrc                                Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1639         194    0.0    0.0     0.0    0.0
+                 look.index                           Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1637          97    0.0    0.0     0.0    0.0
+                  lxPos                               Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1638          97    0.0    0.0     0.0    0.0
+          lookPred                                    Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1642           0    0.0    0.0     0.0    0.0
+           look                                       Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1644           0    0.0    0.0     0.0    0.0
+            lxSrc                                     Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1647          16    0.0    0.0     0.0    0.0
+            look.index                                Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1645           8    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1646           8    0.0    0.0     0.0    0.0
+          matchEscapeSeq.checkOctal                   Lib.Lexer               src/Lib/Lexer.hs:(183,5)-(186,19)                     1754           0    0.0    0.0     0.0    0.0
+           matchEscapeSeq.checkOctDigit               Lib.Lexer               src/Lib/Lexer.hs:(187,5)-(189,36)                     1760           0    0.0    0.0     0.0    0.0
+            move                                      Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1768           3    0.0    0.0     0.0    0.0
+             move.\                                   Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1769           3    0.0    0.0     0.0    0.0
+              lxPos                                   Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1770           3    0.0    0.0     0.0    0.0
+            lookPred                                  Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1762           0    0.0    0.0     0.0    0.0
+             look                                     Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1764           0    0.0    0.0     0.0    0.0
+              lxSrc                                   Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1767          18    0.0    0.0     0.0    0.0
+              look.index                              Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1765           9    0.0    0.0     0.0    0.0
+               lxPos                                  Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1766           9    0.0    0.0     0.0    0.0
+           move                                       Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1774           0    0.0    0.0     0.0    0.0
+            move.\                                    Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1775           3    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1776           3    0.0    0.0     0.0    0.0
+          matchPrefix'                                Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1651           0    0.0    0.0     0.0    0.0
+           matchPrefix                                Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1652           0    0.0    0.0     0.0    0.0
+            move                                      Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1664           4    0.0    0.0     0.0    0.0
+             move.\                                   Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1671           4    0.0    0.0     0.0    0.0
+              lxPos                                   Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1672           4    0.0    0.0     0.0    0.0
+            hasPrefix                                 Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1654           0    0.0    0.0     0.0    0.0
+             hasPrefix.checkChar                      Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1657           0    0.0    0.0     0.0    0.0
+              lookCh                                  Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1658           0    0.0    0.0     0.0    0.0
+               look                                   Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1660           0    0.0    0.0     0.0    0.0
+                lxSrc                                 Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1663          10    0.0    0.0     0.0    0.0
+                look.index                            Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1661           5    0.0    0.0     0.0    0.0
+                 lxPos                                Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1662           5    0.0    0.0     0.0    0.0
+         matchEscapeSeq.checkHexDigits                Lib.Lexer               src/Lib/Lexer.hs:(190,5)-(193,45)                     1665           4    0.0    0.0     0.0    0.0
+          takeWhileM                                  Control.Monad.Loops     src/Control/Monad/Loops.hs:(372,1)-(377,30)           1666          12    0.0    0.0     0.0    0.0
+           lookPred                                   Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1667           8    0.0    0.0     0.0    0.0
+            look                                      Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1668           8    0.0    0.0     0.0    0.0
+             lxSrc                                    Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1673          16    0.0    0.0     0.0    0.0
+             look.index                               Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1669           8    0.0    0.0     0.0    0.0
+              lxPos                                   Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1670           8    0.0    0.0     0.0    0.0
+          matchEscapeSeq.checkHexDigits.count         Lib.Lexer               src/Lib/Lexer.hs:192:13-36                            1674           4    0.0    0.0     0.0    0.0
+         lexChar                                      Lib.Lexer               src/Lib/Lexer.hs:(218,1)-(236,40)                     1696           2    0.0    0.0     0.0    0.0
+          lexChar.loop                                Lib.Lexer               src/Lib/Lexer.hs:(226,5)-(236,40)                     1699           2    0.0    0.0     0.0    0.0
+         lexChar.loop                                 Lib.Lexer               src/Lib/Lexer.hs:(226,5)-(236,40)                     1742           2    0.0    0.0     0.0    0.0
+         isIdentStart                                 Lib.Lexer               src/Lib/Lexer.hs:(239,1)-(243,50)                     1822           0    0.0    0.0     0.1    0.1
+          checkUniversalCharName.checkHexDigits.\     Lib.Lexer               src/Lib/Lexer.hs:162:34-65                            2111          17    0.0    0.0     0.0    0.0
+           lookPred                                   Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       2112          17    0.0    0.0     0.0    0.0
+            look                                      Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2115          17    0.0    0.0     0.0    0.0
+          checkUniversalCharName                      Lib.Lexer               src/Lib/Lexer.hs:(153,1)-(163,55)                     2103           0    0.0    0.0     0.1    0.1
+           checkUniversalCharName.checkHexDigits      Lib.Lexer               src/Lib/Lexer.hs:(161,5)-(163,55)                     2109           3    0.0    0.0     0.1    0.1
+            allM                                      Control.Monad.Loops     src/Control/Monad/Loops.hs:(363,1)-(368,33)           2110          19    0.0    0.0     0.1    0.1
+             checkUniversalCharName.checkHexDigits.\  Lib.Lexer               src/Lib/Lexer.hs:162:34-65                            2113           0    0.0    0.0     0.1    0.1
+              lookPred                                Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       2114           0    0.1    0.1     0.1    0.1
+               look                                   Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2116           0    0.0    0.0     0.0    0.0
+                lxSrc                                 Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              2119          34    0.0    0.0     0.0    0.0
+                look.index                            Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              2117          17    0.0    0.0     0.0    0.0
+                 lxPos                                Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2118          17    0.0    0.0     0.0    0.0
+           look                                       Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2105           0    0.0    0.0     0.0    0.0
+            lxSrc                                     Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              2108           6    0.0    0.0     0.0    0.0
+            look.index                                Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              2106           3    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2107           3    0.0    0.0     0.0    0.0
+          lookCh                                      Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1825           0    0.0    0.0     0.0    0.0
+           look                                       Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1827           0    0.0    0.0     0.0    0.0
+            lxSrc                                     Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1830          32    0.0    0.0     0.0    0.0
+            look.index                                Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1828          16    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1829          16    0.0    0.0     0.0    0.0
+          lookPred                                    Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1833           0    0.1    0.0     0.1    0.0
+           isIdentStart.\                             Lib.Lexer               src/Lib/Lexer.hs:243:28-48                            1839          13    0.0    0.0     0.0    0.0
+           look                                       Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1835           0    0.0    0.0     0.0    0.0
+            lxSrc                                     Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1838          26    0.0    0.0     0.0    0.0
+            look.index                                Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1836          13    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1837          13    0.0    0.0     0.0    0.0
+         isIntStart                                   Lib.Lexer               src/Lib/Lexer.hs:253:1-31                             1885           0    0.0    0.0     0.0    0.0
+          lookPred                                    Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1886           0    0.0    0.0     0.0    0.0
+           look                                       Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1888           0    0.0    0.0     0.0    0.0
+            lxSrc                                     Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1891          10    0.0    0.0     0.0    0.0
+            look.index                                Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1889           5    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1890           5    0.0    0.0     0.0    0.0
+         lexIdent                                     Lib.Lexer               src/Lib/Lexer.hs:(246,1)-(250,22)                     1842           0    0.0    0.0     0.1    0.1
+          andM                                        Control.Monad.Loops     src/Control/Monad/Loops.hs:(308,1)-(313,33)           1845           0    0.0    0.0     0.0    0.0
+          lexUniversalCharName                        Lib.Lexer               src/Lib/Lexer.hs:(166,1)-(170,25)                     2122           0    0.0    0.0     0.0    0.0
+           checkUniversalCharName.checkHexDigits.\    Lib.Lexer               src/Lib/Lexer.hs:162:34-65                            2132          12    0.0    0.0     0.0    0.0
+            lookPred                                  Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       2133          12    0.0    0.0     0.0    0.0
+             look                                     Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2136          12    0.0    0.0     0.0    0.0
+           move                                       Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              2141           2    0.0    0.0     0.0    0.0
+            move.\                                    Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             2142           2    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2143           2    0.0    0.0     0.0    0.0
+           checkUniversalCharName                     Lib.Lexer               src/Lib/Lexer.hs:(153,1)-(163,55)                     2123           0    0.0    0.0     0.0    0.0
+            checkUniversalCharName.checkHexDigits     Lib.Lexer               src/Lib/Lexer.hs:(161,5)-(163,55)                     2130           2    0.0    0.0     0.0    0.0
+             allM                                     Control.Monad.Loops     src/Control/Monad/Loops.hs:(363,1)-(368,33)           2131          14    0.0    0.0     0.0    0.0
+              checkUniversalCharName.checkHexDigits.\ Lib.Lexer               src/Lib/Lexer.hs:162:34-65                            2134           0    0.0    0.0     0.0    0.0
+               lookPred                               Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       2135           0    0.0    0.0     0.0    0.0
+                look                                  Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2137           0    0.0    0.0     0.0    0.0
+                 lxSrc                                Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              2140          24    0.0    0.0     0.0    0.0
+                 look.index                           Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              2138          12    0.0    0.0     0.0    0.0
+                  lxPos                               Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2139          12    0.0    0.0     0.0    0.0
+            look                                      Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2124           0    0.0    0.0     0.0    0.0
+             lxSrc                                    Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              2129           4    0.0    0.0     0.0    0.0
+             look.index                               Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              2125           2    0.0    0.0     0.0    0.0
+              lxPos                                   Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2126           2    0.0    0.0     0.0    0.0
+          lookPred                                    Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1868           0    0.1    0.0     0.1    0.0
+           lexIdent.\                                 Lib.Lexer               src/Lib/Lexer.hs:249:34-57                            1874          23    0.0    0.0     0.0    0.0
+           look                                       Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1870           0    0.0    0.0     0.0    0.0
+            lxSrc                                     Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1873          46    0.0    0.0     0.0    0.0
+            look.index                                Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1871          23    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1872          23    0.0    0.0     0.0    0.0
+          matchPrefix'                                Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1851           0    0.0    0.0     0.0    0.0
+           matchPrefix                                Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1852           0    0.0    0.0     0.0    0.0
+            move                                      Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              2120           2    0.0    0.0     0.0    0.0
+             move.\                                   Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             2127           2    0.0    0.0     0.0    0.0
+              lxPos                                   Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2128           2    0.0    0.0     0.0    0.0
+            hasPrefix                                 Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1854           0    0.0    0.0     0.0    0.0
+             hasPrefix.checkChar                      Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1857           0    0.0    0.0     0.0    0.0
+              lookCh                                  Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1858           0    0.0    0.0     0.0    0.0
+               look                                   Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1860           0    0.0    0.0     0.0    0.0
+                lxSrc                                 Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1863          46    0.0    0.0     0.0    0.0
+                look.index                            Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1861          23    0.0    0.0     0.0    0.0
+                 lxPos                                Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1862          23    0.0    0.0     0.0    0.0
+         lexInt                                       Lib.Lexer               src/Lib/Lexer.hs:(289,1)-(297,26)                     1893           0    0.0    0.0     0.0    0.0
+          lexInt.determineIntKind                     Lib.Lexer               src/Lib/Lexer.hs:(293,5)-(297,26)                     1897           0    0.0    0.0     0.0    0.0
+           anyM                                       Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1901           0    0.0    0.0     0.0    0.0
+            hasPrefix'                                Lib.Lexer               src/Lib/Lexer.hs:77:1-38                              1904           0    0.0    0.0     0.0    0.0
+             hasPrefix                                Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1905           0    0.0    0.0     0.0    0.0
+              hasPrefix.checkChar                     Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1908           0    0.0    0.0     0.0    0.0
+               lookCh                                 Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1909           0    0.0    0.0     0.0    0.0
+                look                                  Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1911           0    0.0    0.0     0.0    0.0
+                 lxSrc                                Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1914          24    0.0    0.0     0.0    0.0
+                 look.index                           Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1912          12    0.0    0.0     0.0    0.0
+                  lxPos                               Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1913          12    0.0    0.0     0.0    0.0
+           matchPrefix'                               Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1922           0    0.0    0.0     0.0    0.0
+            matchPrefix                               Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1923           0    0.0    0.0     0.0    0.0
+             move                                     Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              2069           2    0.0    0.0     0.0    0.0
+              move.\                                  Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             2089           2    0.0    0.0     0.0    0.0
+               lxPos                                  Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2090           2    0.0    0.0     0.0    0.0
+             hasPrefix                                Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1925           0    0.0    0.0     0.0    0.0
+              hasPrefix.checkChar                     Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1928           0    0.0    0.0     0.0    0.0
+               lookCh                                 Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1929           0    0.0    0.0     0.0    0.0
+                look                                  Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1931           0    0.0    0.0     0.0    0.0
+                 lxSrc                                Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1934           6    0.0    0.0     0.0    0.0
+                 look.index                           Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1932           3    0.0    0.0     0.0    0.0
+                  lxPos                               Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1933           3    0.0    0.0     0.0    0.0
+           move                                       Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              2058           0    0.0    0.0     0.0    0.0
+            move.\                                    Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             2059           1    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2060           1    0.0    0.0     0.0    0.0
+         lexIntDecimal                                Lib.Lexer               src/Lib/Lexer.hs:(269,1)-(273,22)                     1940           0    0.0    0.0     0.0    0.0
+          lookPred                                    Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1943           0    0.0    0.0     0.0    0.0
+           look                                       Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1945           0    0.0    0.0     0.0    0.0
+            lxSrc                                     Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1948           4    0.0    0.0     0.0    0.0
+            look.index                                Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1946           2    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1947           2    0.0    0.0     0.0    0.0
+          whileM_                                     Control.Monad.Loops     src/Control/Monad/Loops.hs:(116,1)-(121,30)           1954           0    0.0    0.0     0.0    0.0
+           whileM_.go                                 Control.Monad.Loops     src/Control/Monad/Loops.hs:(117,11)-(121,30)          1955           0    0.0    0.0     0.0    0.0
+         lexIntHex                                    Lib.Lexer               src/Lib/Lexer.hs:(256,1)-(260,22)                     2050           0    0.0    0.0     0.0    0.0
+          lookPred                                    Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       2053           0    0.0    0.0     0.0    0.0
+           look                                       Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2055           0    0.0    0.0     0.0    0.0
+            lxSrc                                     Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              2061           4    0.0    0.0     0.0    0.0
+            look.index                                Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              2056           2    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2057           2    0.0    0.0     0.0    0.0
+          whileM_                                     Control.Monad.Loops     src/Control/Monad/Loops.hs:(116,1)-(121,30)           2067           0    0.0    0.0     0.0    0.0
+           whileM_.go                                 Control.Monad.Loops     src/Control/Monad/Loops.hs:(117,11)-(121,30)          2068           0    0.0    0.0     0.0    0.0
+         lexIntOctal                                  Lib.Lexer               src/Lib/Lexer.hs:(263,1)-(266,21)                     2074           0    0.0    0.0     0.0    0.0
+          lookPred                                    Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       2084           0    0.0    0.0     0.0    0.0
+           look                                       Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2086           0    0.0    0.0     0.0    0.0
+            lxSrc                                     Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              2091          24    0.0    0.0     0.0    0.0
+            look.index                                Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              2087          12    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2088          12    0.0    0.0     0.0    0.0
+          whileM_                                     Control.Monad.Loops     src/Control/Monad/Loops.hs:(116,1)-(121,30)           2080           0    0.0    0.0     0.0    0.0
+           whileM_.go                                 Control.Monad.Loops     src/Control/Monad/Loops.hs:(117,11)-(121,30)          2081           0    0.0    0.0     0.0    0.0
+            move1                                     Lib.Lexer               src/Lib/Lexer.hs:47:1-14                              2092           0    0.0    0.0     0.0    0.0
+             move                                     Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              2093           0    0.0    0.0     0.0    0.0
+              move.\                                  Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             2094           8    0.0    0.0     0.0    0.0
+               lxPos                                  Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2095           8    0.0    0.0     0.0    0.0
+         lexIntSuffix                                 Lib.Lexer               src/Lib/Lexer.hs:(279,1)-(286,33)                     1957           0    0.0    0.0     0.0    0.0
+          anyM                                        Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1960           0    0.0    0.0     0.0    0.0
+           andM                                       Control.Monad.Loops     src/Control/Monad/Loops.hs:(308,1)-(313,33)           1964           0    0.0    0.0     0.0    0.0
+          checkIntEnd                                 Lib.Lexer               src/Lib/Lexer.hs:276:1-84                             2008           0    0.0    0.0     0.0    0.0
+           isIdentStart                               Lib.Lexer               src/Lib/Lexer.hs:(239,1)-(243,50)                     2041           0    0.0    0.0     0.0    0.0
+           orM                                        Control.Monad.Loops     src/Control/Monad/Loops.hs:(317,1)-(322,27)           2011           0    0.0    0.0     0.0    0.0
+            isIntStart                                Lib.Lexer               src/Lib/Lexer.hs:253:1-31                             2012           0    0.0    0.0     0.0    0.0
+             lookPred                                 Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       2013           0    0.0    0.0     0.0    0.0
+              look                                    Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2014           0    0.0    0.0     0.0    0.0
+               lxSrc                                  Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              2017           8    0.0    0.0     0.0    0.0
+               look.index                             Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              2015           4    0.0    0.0     0.0    0.0
+                lxPos                                 Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2016           4    0.0    0.0     0.0    0.0
+            lxIsCharStart                             Lib.Lexer               src/Lib/Lexer.hs:150:1-46                             2029           0    0.0    0.0     0.0    0.0
+             anyM                                     Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           2030           0    0.0    0.0     0.0    0.0
+              matchPrefix'                            Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              2031           0    0.0    0.0     0.0    0.0
+               matchPrefix                            Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       2032           0    0.0    0.0     0.0    0.0
+                hasPrefix                             Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       2033           0    0.0    0.0     0.0    0.0
+                 hasPrefix.checkChar                  Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              2034           0    0.0    0.0     0.0    0.0
+                  lookCh                              Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              2035           0    0.0    0.0     0.0    0.0
+                   look                               Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2036           0    0.0    0.0     0.0    0.0
+                    lxSrc                             Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              2039          32    0.0    0.0     0.0    0.0
+                    look.index                        Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              2037          16    0.0    0.0     0.0    0.0
+                     lxPos                            Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2038          16    0.0    0.0     0.0    0.0
+            lxIsStringStart                           Lib.Lexer               src/Lib/Lexer.hs:144:1-50                             2018           0    0.0    0.0     0.0    0.0
+             anyM                                     Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           2019           0    0.0    0.0     0.0    0.0
+              matchPrefix'                            Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              2020           0    0.0    0.0     0.0    0.0
+               matchPrefix                            Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       2021           0    0.0    0.0     0.0    0.0
+                hasPrefix                             Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       2022           0    0.0    0.0     0.0    0.0
+                 hasPrefix.checkChar                  Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              2023           0    0.0    0.0     0.0    0.0
+                  lookCh                              Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              2024           0    0.0    0.0     0.0    0.0
+                   look                               Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2025           0    0.0    0.0     0.0    0.0
+                    lxSrc                             Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              2028          40    0.0    0.0     0.0    0.0
+                    look.index                        Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              2026          20    0.0    0.0     0.0    0.0
+                     lxPos                            Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2027          20    0.0    0.0     0.0    0.0
+          lexIntSuffix.matchL                         Lib.Lexer               src/Lib/Lexer.hs:284:5-53                             1990           0    0.0    0.0     0.0    0.0
+           anyM                                       Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1991           0    0.0    0.0     0.0    0.0
+            matchPrefix'                              Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1994           0    0.0    0.0     0.0    0.0
+             matchPrefix                              Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1995           0    0.0    0.0     0.0    0.0
+              hasPrefix                               Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1997           0    0.0    0.0     0.0    0.0
+               hasPrefix.checkChar                    Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              2000           0    0.0    0.0     0.0    0.0
+                lookCh                                Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              2001           0    0.0    0.0     0.0    0.0
+                 look                                 Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       2003           0    0.0    0.0     0.0    0.0
+                  lxSrc                               Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              2006          32    0.0    0.0     0.0    0.0
+                  look.index                          Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              2004          16    0.0    0.0     0.0    0.0
+                   lxPos                              Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              2005          16    0.0    0.0     0.0    0.0
+          lexIntSuffix.matchU                         Lib.Lexer               src/Lib/Lexer.hs:283:5-41                             1968           0    0.0    0.0     0.0    0.0
+           anyM                                       Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1969           0    0.0    0.0     0.0    0.0
+            matchPrefix'                              Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1972           0    0.0    0.0     0.0    0.0
+             matchPrefix                              Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1973           0    0.0    0.0     0.0    0.0
+              hasPrefix                               Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1975           0    0.0    0.0     0.0    0.0
+               hasPrefix.checkChar                    Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1978           0    0.0    0.0     0.0    0.0
+                lookCh                                Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1979           0    0.0    0.0     0.0    0.0
+                 look                                 Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1981           0    0.0    0.0     0.0    0.0
+                  lxSrc                               Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1984          16    0.0    0.0     0.0    0.0
+                  look.index                          Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1982           8    0.0    0.0     0.0    0.0
+                   lxPos                              Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1983           8    0.0    0.0     0.0    0.0
+         lexPunct                                     Lib.Lexer               src/Lib/Lexer.hs:(124,1)-(138,37)                     1502           0    0.0    0.0     0.0    0.0
+          lexPunct.lexPunct'                          Lib.Lexer               src/Lib/Lexer.hs:(130,5)-(138,37)                     1512          11    0.0    0.0     0.0    0.0
+           matchPrefix                                Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1519           5    0.0    0.0     0.0    0.0
+            hasPrefix                                 Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1520           5    0.0    0.0     0.0    0.0
+             hasPrefix.checkChar                      Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1521           6    0.0    0.0     0.0    0.0
+              lookCh                                  Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1522           6    0.0    0.0     0.0    0.0
+               look                                   Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1523           6    0.0    0.0     0.0    0.0
+                lxSrc                                 Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1526          10    0.0    0.0     0.0    0.0
+                look.index                            Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1524           5    0.0    0.0     0.0    0.0
+                 lxPos                                Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1525           5    0.0    0.0     0.0    0.0
+            move                                      Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1527           2    0.0    0.0     0.0    0.0
+             move.\                                   Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1528           2    0.0    0.0     0.0    0.0
+              lxPos                                   Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1529           2    0.0    0.0     0.0    0.0
+           move                                       Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1516           0    0.0    0.0     0.0    0.0
+            move.\                                    Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1517           6    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1518           6    0.0    0.0     0.0    0.0
+          lexPunct.possibilities                      Lib.Lexer               src/Lib/Lexer.hs:126:9-67                             1509           8    0.0    0.0     0.0    0.0
+          look                                        Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1505           0    0.0    0.0     0.0    0.0
+           lxSrc                                      Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1508          16    0.0    0.0     0.0    0.0
+           look.index                                 Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1506           8    0.0    0.0     0.0    0.0
+            lxPos                                     Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1507           8    0.0    0.0     0.0    0.0
+         lexUniversalCharName                         Lib.Lexer               src/Lib/Lexer.hs:(166,1)-(170,25)                     1795           0    0.0    0.0     0.0    0.0
+          checkUniversalCharName.checkHexDigits.\     Lib.Lexer               src/Lib/Lexer.hs:162:34-65                            1806           4    0.0    0.0     0.0    0.0
+           lookPred                                   Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1807           4    0.0    0.0     0.0    0.0
+            look                                      Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1810           4    0.0    0.0     0.0    0.0
+          move                                        Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1815           1    0.0    0.0     0.0    0.0
+           move.\                                     Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1816           1    0.0    0.0     0.0    0.0
+            lxPos                                     Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1817           1    0.0    0.0     0.0    0.0
+          checkUniversalCharName                      Lib.Lexer               src/Lib/Lexer.hs:(153,1)-(163,55)                     1798           0    0.0    0.0     0.0    0.0
+           checkUniversalCharName.checkHexDigits      Lib.Lexer               src/Lib/Lexer.hs:(161,5)-(163,55)                     1804           1    0.0    0.0     0.0    0.0
+            allM                                      Control.Monad.Loops     src/Control/Monad/Loops.hs:(363,1)-(368,33)           1805           5    0.0    0.0     0.0    0.0
+             checkUniversalCharName.checkHexDigits.\  Lib.Lexer               src/Lib/Lexer.hs:162:34-65                            1808           0    0.0    0.0     0.0    0.0
+              lookPred                                Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1809           0    0.0    0.0     0.0    0.0
+               look                                   Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1811           0    0.0    0.0     0.0    0.0
+                lxSrc                                 Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1814           8    0.0    0.0     0.0    0.0
+                look.index                            Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1812           4    0.0    0.0     0.0    0.0
+                 lxPos                                Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1813           4    0.0    0.0     0.0    0.0
+           look                                       Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1800           0    0.0    0.0     0.0    0.0
+            lxSrc                                     Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1803           2    0.0    0.0     0.0    0.0
+            look.index                                Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1801           1    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1802           1    0.0    0.0     0.0    0.0
+         lxIsCharStart                                Lib.Lexer               src/Lib/Lexer.hs:150:1-46                             1678           0    0.0    0.0     0.0    0.0
+          anyM                                        Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1679           0    0.0    0.0     0.0    0.0
+           matchPrefix'                               Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1682           0    0.0    0.0     0.0    0.0
+            matchPrefix                               Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1683           0    0.0    0.0     0.0    0.0
+             move                                     Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1695           2    0.0    0.0     0.0    0.0
+              move.\                                  Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1697           2    0.0    0.0     0.0    0.0
+               lxPos                                  Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1698           2    0.0    0.0     0.0    0.0
+             hasPrefix                                Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1685           0    0.0    0.0     0.0    0.0
+              hasPrefix.checkChar                     Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1688           0    0.0    0.0     0.0    0.0
+               lookCh                                 Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1689           0    0.0    0.0     0.0    0.0
+                look                                  Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1691           0    0.0    0.0     0.0    0.0
+                 lxSrc                                Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1694         102    0.0    0.0     0.0    0.0
+                 look.index                           Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1692          51    0.0    0.0     0.0    0.0
+                  lxPos                               Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1693          51    0.0    0.0     0.0    0.0
+         lxIsPunct                                    Lib.Lexer               src/Lib/Lexer.hs:121:1-40                             1492           0    0.0    0.0     0.1    0.1
+          lookPred                                    Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1493           0    0.1    0.1     0.1    0.1
+           isPunctuatorStart                          Lib.Token               src/Lib/Token.hs:298:1-62                             1499          34    0.0    0.0     0.0    0.0
+           look                                       Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1495           0    0.0    0.0     0.0    0.0
+            lxSrc                                     Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1498          68    0.0    0.0     0.0    0.0
+            look.index                                Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1496          34    0.0    0.0     0.0    0.0
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1497          34    0.0    0.0     0.0    0.0
+         lxIsStringStart                              Lib.Lexer               src/Lib/Lexer.hs:144:1-50                             1544           0    0.0    0.0     0.0    0.0
+          anyM                                        Control.Monad.Loops     src/Control/Monad/Loops.hs:(354,1)-(359,30)           1545           0    0.0    0.0     0.0    0.0
+           matchPrefix'                               Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1548           0    0.0    0.0     0.0    0.0
+            matchPrefix                               Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1549           0    0.0    0.0     0.0    0.0
+             move                                     Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1561          12    0.0    0.0     0.0    0.0
+              move.\                                  Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1566          12    0.0    0.0     0.0    0.0
+               lxPos                                  Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1567          12    0.0    0.0     0.0    0.0
+             hasPrefix                                Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1551           0    0.0    0.0     0.0    0.0
+              hasPrefix.checkChar                     Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1554           0    0.0    0.0     0.0    0.0
+               lookCh                                 Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1555           0    0.0    0.0     0.0    0.0
+                look                                  Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1557           0    0.0    0.0     0.0    0.0
+                 lxSrc                                Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1560         196    0.0    0.0     0.0    0.0
+                 look.index                           Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1558          98    0.0    0.0     0.0    0.0
+                  lxPos                               Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1559          98    0.0    0.0     0.0    0.0
+         move1                                        Lib.Lexer               src/Lib/Lexer.hs:47:1-14                              1877           0    0.0    0.0     0.0    0.0
+          move                                        Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1878           0    0.0    0.0     0.0    0.0
+           move.\                                     Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1879          20    0.0    0.0     0.0    0.0
+            lxPos                                     Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1880          20    0.0    0.0     0.0    0.0
+         skipWs                                       Lib.Lexer               src/Lib/Lexer.hs:(99,1)-(118,27)                      1414           0    0.0    0.0    83.5   92.3
+          skipWs.skipWs'                              Lib.Lexer               src/Lib/Lexer.hs:(102,5)-(118,27)                     1415           0   15.7   19.4    83.5   92.3
+           lookCh                                     Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1468           0   23.0   50.9    52.6   50.9
+            look                                      Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1470           0   26.6    0.0    29.6    0.0
+             lxSrc                                    Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1475    25485176    0.0    0.0     0.0    0.0
+             look.index                               Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1471    25484920    3.0    0.0     3.0    0.0
+              lxPos                                   Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1472    25484920    0.0    0.0     0.0    0.0
+           lookPred                                   Lib.Lexer               src/Lib/Lexer.hs:(62,1)-(64,56)                       1422           0    0.2    0.2     0.2    0.2
+            look                                      Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1424           0    0.0    0.0     0.0    0.0
+             lxSrc                                    Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1427         166    0.0    0.0     0.0    0.0
+             look.index                               Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1425          83    0.0    0.0     0.0    0.0
+              lxPos                                   Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1426          83    0.0    0.0     0.0    0.0
+           matchPrefix'                               Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1435           0    0.0    0.0     0.1    0.0
+            matchPrefix                               Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1436           0    0.0    0.0     0.1    0.0
+             move                                     Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1459          17    0.0    0.0     0.0    0.0
+              move.\                                  Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1473          17    0.0    0.0     0.0    0.0
+               lxPos                                  Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1474          17    0.0    0.0     0.0    0.0
+             hasPrefix                                Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1438           0    0.0    0.0     0.0    0.0
+              hasPrefix.checkChar                     Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1441           0    0.0    0.0     0.0    0.0
+               lookCh                                 Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1442           0    0.0    0.0     0.0    0.0
+                look                                  Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1444           0    0.0    0.0     0.0    0.0
+                 lxSrc                                Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1447         272    0.0    0.0     0.0    0.0
+                 look.index                           Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1445         136    0.0    0.0     0.0    0.0
+                  lxPos                               Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1446         136    0.0    0.0     0.0    0.0
+           move                                       Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1479           0    2.3    0.0    14.9   21.8
+            move.\                                    Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1480    25484956   12.6   21.8    12.6   21.8
+             lxPos                                    Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1481    25484956    0.0    0.0     0.0    0.0
+        lxWasEof                                      Lib.Lexer               src/Lib/Lexer.hs:37:7-14                              1410          35    0.0    0.0     0.0    0.0
+        lxPos                                         Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1568          14    0.0    0.0     0.0    0.0
+        lexChar                                       Lib.Lexer               src/Lib/Lexer.hs:(218,1)-(236,40)                     1705           0    0.0    0.0     0.0    0.0
+         lexChar.loop                                 Lib.Lexer               src/Lib/Lexer.hs:(226,5)-(236,40)                     1706           0    0.0    0.0     0.0    0.0
+          matchPrefix'                                Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1707           0    0.0    0.0     0.0    0.0
+           matchPrefix                                Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1708           0    0.0    0.0     0.0    0.0
+            move                                      Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1746           3    0.0    0.0     0.0    0.0
+             move.\                                   Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1747           3    0.0    0.0     0.0    0.0
+              lxPos                                   Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1748           3    0.0    0.0     0.0    0.0
+            hasPrefix                                 Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1710           0    0.0    0.0     0.0    0.0
+             hasPrefix.checkChar                      Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1713           0    0.0    0.0     0.0    0.0
+              lookCh                                  Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1714           0    0.0    0.0     0.0    0.0
+               look                                   Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1716           0    0.0    0.0     0.0    0.0
+                lxSrc                                 Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1719          20    0.0    0.0     0.0    0.0
+                look.index                            Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1717          10    0.0    0.0     0.0    0.0
+                 lxPos                                Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1718          10    0.0    0.0     0.0    0.0
+          move                                        Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1743           0    0.0    0.0     0.0    0.0
+           move.\                                     Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1744           1    0.0    0.0     0.0    0.0
+            lxPos                                     Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1745           1    0.0    0.0     0.0    0.0
+        lexString                                     Lib.Lexer               src/Lib/Lexer.hs:(196,1)-(215,33)                     1576           0    0.0    0.0     0.0    0.0
+         lexString.loop                               Lib.Lexer               src/Lib/Lexer.hs:(205,5)-(215,33)                     1577           0    0.0    0.0     0.0    0.0
+          matchPrefix'                                Lib.Lexer               src/Lib/Lexer.hs:96:1-42                              1578           0    0.0    0.0     0.0    0.0
+           matchPrefix                                Lib.Lexer               src/Lib/Lexer.hs:(89,1)-(93,25)                       1579           0    0.0    0.0     0.0    0.0
+            move                                      Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1617          23    0.0    0.0     0.0    0.0
+             move.\                                   Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1618          23    0.0    0.0     0.0    0.0
+              lxPos                                   Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1619          23    0.0    0.0     0.0    0.0
+            hasPrefix                                 Lib.Lexer               src/Lib/Lexer.hs:(67,1)-(74,35)                       1581           0    0.0    0.0     0.0    0.0
+             hasPrefix.checkChar                      Lib.Lexer               src/Lib/Lexer.hs:74:5-35                              1584           0    0.0    0.0     0.0    0.0
+              lookCh                                  Lib.Lexer               src/Lib/Lexer.hs:59:1-49                              1585           0    0.0    0.0     0.0    0.0
+               look                                   Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1587           0    0.0    0.0     0.0    0.0
+                lxSrc                                 Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1590         548    0.0    0.0     0.0    0.0
+                look.index                            Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1588         274    0.0    0.0     0.0    0.0
+                 lxPos                                Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1589         274    0.0    0.0     0.0    0.0
+          move                                        Lib.Lexer               src/Lib/Lexer.hs:44:1-46                              1614           0    0.0    0.0     0.0    0.0
+           move.\                                     Lib.Lexer               src/Lib/Lexer.hs:44:25-46                             1615          73    0.0    0.0     0.0    0.0
+            lxPos                                     Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1616          73    0.0    0.0     0.0    0.0
+        look                                          Lib.Lexer               src/Lib/Lexer.hs:(50,1)-(56,24)                       1486           0    0.0    0.0     0.0    0.0
+         look.index                                   Lib.Lexer               src/Lib/Lexer.hs:52:9-32                              1487          34    0.0    0.0     0.0    0.0
+          lxPos                                       Lib.Lexer               src/Lib/Lexer.hs:36:7-11                              1488          34    0.0    0.0     0.0    0.0
+         lxSrc                                        Lib.Lexer               src/Lib/Lexer.hs:35:7-11                              1489          34    0.0    0.0     0.0    0.0
