@@ -27,6 +27,7 @@ dependencies:
 - extra
 - transformers
 - monad-loops
+- parsec
 
 ghc-options:
 - -Wall

@@ -35,7 +35,7 @@ data TokenKind
   | Constant Constant
   | Punctuation Punctuation
   | IDENT
-  deriving (Eq)
+  deriving (Eq, Data, Typeable)
 
 instance Show TokenKind where
   show ERROR = "ERROR"
